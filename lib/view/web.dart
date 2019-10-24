@@ -55,9 +55,9 @@ class _WebState extends State<Web> {
       javascriptMode : JavascriptMode.unrestricted,
       javascriptChannels: Set.from([
         JavascriptChannel(
-            name: 'Android',
+            name: 'Mobile',
             onMessageReceived: (JavascriptMessage message) {
-              print(message.message);
+              Navigator.pop(context);
             })
       ]),
       onWebViewCreated: (webViewController){},
