@@ -11,11 +11,8 @@ To use this plugin, add `okra_widget` as a [dependency in your pubspec.yaml file
 ### Usage
 ```
 <!--Okra.create() static method takes in a context parameter and also and OkraOption parameter-->
-ArrayList products = new ArrayList<Enums.Product>();
-products.add(Enums.Product.auth);
-products.add(Enums.Product.transactions);
-OkraOptions okraOptions = new OkraOptions(true, "c81f3e05-7a5c-5727-8d33-1113a3c7a5e4","5d8a35224d8113507c7521ac", products, Enums.Environment.sandbox,"Bassey");
-Okra.create(MainActivity.this, okraOptions);
+ var okraOptions = new OkraOptions(true,"c81f3e05-7a5c-5727-8d33-1113a3c7a5e4","5d8a35224d8113507c7521ac",[Product.auth,Product.balance],Environment.dev,"Bassey")
+ Okra.create(context, okraOptions);
 ```
 
 ## OkraOptions
