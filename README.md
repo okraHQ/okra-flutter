@@ -1,14 +1,31 @@
 # okra_widget
 
-Okra link widget application
+This is an flutter library for implementing okra widget
 
-## Getting Started
+### Getting Started
+This library would help you add Okra widget to your hybrid android/ios application in no time. All you need to do is ...
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+### Install
+To use this plugin, add `okra_widget` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+### Usage
+```
+<!--Okra.create() static method takes in a context parameter and also and OkraOption parameter-->
+ArrayList products = new ArrayList<Enums.Product>();
+products.add(Enums.Product.auth);
+products.add(Enums.Product.transactions);
+OkraOptions okraOptions = new OkraOptions(true, "c81f3e05-7a5c-5727-8d33-1113a3c7a5e4","5d8a35224d8113507c7521ac", products, Enums.Environment.sandbox,"Bassey");
+Okra.create(MainActivity.this, okraOptions);
+```
+
+## OkraOptions
+
+|Name                   | Type           | Required            | Default Value       | Description         |
+|-----------------------|----------------|---------------------|---------------------|---------------------|
+|  `isWebview `         | `boolean`      | true                |  true               | 
+|  `key `               | `String`       | true                |  undefined          | Your public key from Okra.
+|  `token`              | `String`       | true                |  undefined          | Your pubic Key from Paystack. Use test key for test mode and live key for live mode
+|  `products`           | `ArrayList<Enums.Product>`| true     |  undefined          | The Okra products you want to use with the widget.
+|  `env`                | `Enums.Environment`| true            |  undefined          | 
+|  `clientName`         | `String`       | true                |  undefined          | Name of the customer using the widget on the application
+|  `webhook`            | `String`       | true                |  undefined          | The Url that Okra send the client's data to.
