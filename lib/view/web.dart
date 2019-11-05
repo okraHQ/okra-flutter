@@ -28,6 +28,7 @@ class _WebState extends State<Web> {
        'env': okraOptions.env.toString(),
        'clientName': okraOptions.clientName,
      };
+
      return Uri.https('demo-dev.okra.ng', '/link.html', queryParameters);
    }
 
@@ -35,9 +36,9 @@ class _WebState extends State<Web> {
      String formattedArray = "[";
      for (int index = 0; index < productList.length; index++){
        if(index == (productList.length - 1)){
-         formattedArray = formattedArray + "\" ${productList[index]}\"";
+         formattedArray = formattedArray + "\"${productList[index].toString().split('.').last}\"";
        }else {
-         formattedArray = formattedArray + "\"${productList[index]}\",";
+         formattedArray = formattedArray + "\"${productList[index].toString().split('.').last}\",";
        }
      }
 
