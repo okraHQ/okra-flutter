@@ -7,6 +7,10 @@ This library would help you add Okra widget to your hybrid android/ios applicati
 
 ### Install
 To use this plugin, add `okra_widget` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
+```pub
+dependencies:
+  okra_widget: ^0.0.1
+```
 
 ### Usage
 ```dart
