@@ -26,6 +26,7 @@ class _WebState extends State<Web> {
        'token': okraOptions.token,
        'products': convertArrayListToString(okraOptions.products),
        'env': okraOptions.env.toString(),
+       'source': 'flutter',
        'clientName': okraOptions.clientName,
      };
 
