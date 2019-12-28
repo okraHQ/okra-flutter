@@ -19,6 +19,8 @@ class Web extends StatefulWidget {
 
 class _WebState extends State<Web> {
 
+  WebViewController _controller;
+
    Uri generateLinkInitializationUrl(OkraOptions okraOptions) {
      var queryParameters = {
        'isWebview': okraOptions.isWebview.toString(),
@@ -63,6 +65,18 @@ class _WebState extends State<Web> {
             })
       ]),
       onWebViewCreated: (webViewController){},
+      navigationDelegate: (action){
+        String url = action.url;
+        Uri uri = Uri.parse(url);
+        uri.queryParameters.forEach((key,value) => {
+         if(key == "shouldClose" && value.toLowerCase() == 'true'){
+              Navigator.pop(context)
+           }
+         }
+
+        );
+        return NavigationDecision.navigate;
+      },
     );
   }
 }
