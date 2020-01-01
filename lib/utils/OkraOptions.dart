@@ -9,6 +9,7 @@ class OkraOptions{
   String token;
   List<Product> products = [];
   Environment env;
+  String uuid = "";
   String clientName;
   String webhook;
 

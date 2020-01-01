@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:okra_widget/models/Enums.dart';
 import 'package:okra_widget/utils/OkraOptions.dart';
@@ -29,6 +32,7 @@ class _WebState extends State<Web> {
        'products': convertArrayListToString(okraOptions.products),
        'env': okraOptions.env.toString(),
        'source': 'flutter',
+       'uuid': okraOptions.uuid,
        'clientName': okraOptions.clientName,
      };
 
