@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:okra_widget/models/Enums.dart';
 import 'package:okra_widget/utils/OkraOptions.dart';
@@ -33,6 +30,7 @@ class _WebState extends State<Web> {
        'env': okraOptions.env.toString(),
        'source': 'flutter',
        'uuid': okraOptions.uuid,
+       'imei': okraOptions.imei,
        'clientName': okraOptions.clientName,
      };
 
@@ -58,6 +56,7 @@ class _WebState extends State<Web> {
 
   @override
   Widget build(BuildContext context) {
+     print("this is the url ${generateLinkInitializationUrl(widget.okraOptions).toString()}");
     return WebView(
       initialUrl : generateLinkInitializationUrl(widget.okraOptions).toString(),
       javascriptMode : JavascriptMode.unrestricted,

@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   webview_flutter: ^0.3.0
   device_info: ^0.4.1
+  unique_identifier: ^0.0.3
+  imei_plugin: ^1.1.6
 
 dev_dependencies:
   flutter_test:

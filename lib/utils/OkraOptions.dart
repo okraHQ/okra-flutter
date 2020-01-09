@@ -10,6 +10,7 @@ class OkraOptions{
   List<Product> products = [];
   Environment env;
   String uuid = "";
+  String imei = "";
   String clientName;
   String webhook;
 

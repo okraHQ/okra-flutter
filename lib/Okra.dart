@@ -9,7 +9,10 @@ class Okra {
     static void create(BuildContext context, OkraOptions okraOptions){
         Helper.getDeviceUUID().then((uuid){
             okraOptions.uuid = uuid;
-            Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context) => new Web(okraOptions: okraOptions)));
+            Helper.getDeviceIMEI().then((imei){
+                okraOptions.imei = imei == "Permission Denied" ? "null" : imei;
+                Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context) => new Web(okraOptions: okraOptions)));
+            });
         });
     }
 }

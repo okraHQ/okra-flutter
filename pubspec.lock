@@ -46,6 +46,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  imei_plugin:
+    dependency: "direct main"
+    description:
+      name: imei_plugin
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.6"
   matcher:
     dependency: transitive
     description:
@@ -135,6 +142,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.6"
+  unique_identifier:
+    dependency: "direct main"
+    description:
+      name: unique_identifier
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.3"
   vector_math:
     dependency: transitive
     description:
