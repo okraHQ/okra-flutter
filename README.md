@@ -25,7 +25,7 @@ dependencies:
 |-----------------------|----------------|---------------------|---------------------|---------------------|
 |  `isWebview `         | `boolean`      | true                |  true               | 
 |  `key `               | `String`       | true                |  undefined          | Your public key from Okra.
-|  `token`              | `String`       | true                |  undefined          | Your pubic Key from Paystack. Use test key for test mode and live key for live mode
+|  `token`              | `String`       | true                |  undefined          | Your pubic Key from Okta dashboard. Use test key for test mode and live key for live mode
 |  `products`           | `ArrayList<Enums.Product>`| true     |  undefined          | The Okra products you want to use with the widget.
 |  `env`                | `Enums.Environment`| true            |  undefined          | 
 |  `clientName`         | `String`       | true                |  undefined          | Name of the customer using the widget on the application
