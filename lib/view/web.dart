@@ -30,12 +30,8 @@ class _WebState extends State<Web> {
     return WebView(
       initialUrl : "https://mobile.okra.ng",
       onPageFinished: (response){
-
-        String t = "{" + "\"clientName\" :"  +  "\"" + "Bassey"  +  "\""  + "}";
-
-        print(jsonEncode(widget.okraOptions.toJson()));
-
-        _controller.evaluateJavascript("openOkraWidget('$t')");
+        String jsonOptions = jsonEncode(widget.okraOptions.toJson());
+        _controller.evaluateJavascript("openOkraWidget('$jsonOptions')");
       },
       javascriptMode : JavascriptMode.unrestricted,
       javascriptChannels: Set.from([
