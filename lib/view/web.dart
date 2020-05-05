@@ -1,5 +1,6 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:okra_widget/models/Enums.dart';
 import 'package:okra_widget/utils/OkraOptions.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -21,44 +22,21 @@ class _WebState extends State<Web> {
 
   WebViewController _controller;
 
-   Uri generateLinkInitializationUrl(OkraOptions okraOptions) {
-     var queryParameters = {
-       'isWebview': okraOptions.isWebview.toString(),
-       'key': okraOptions.key,
-       'token': okraOptions.token,
-       'products': convertArrayListToString(okraOptions.products),
-       'env': okraOptions.env.toString(),
-       'source': 'flutter',
-       'uuid': okraOptions.uuid,
-       'imei': okraOptions.imei,
-       'clientName': okraOptions.clientName,
-     };
-
-     return Uri.https('demo-dev.okra.ng', '/link.html', queryParameters);
-   }
-
-   String convertArrayListToString(List<Product> productList){
-     String formattedArray = "[";
-     for (int index = 0; index < productList.length; index++){
-       if(index == (productList.length - 1)){
-         formattedArray = formattedArray + "\"${productList[index].toString().split('.').last}\"";
-       }else {
-         formattedArray = formattedArray + "\"${productList[index].toString().split('.').last}\",";
-       }
-     }
-
-     formattedArray = formattedArray + "]";
-
-     return formattedArray.toString();
-   }
-
-//"https://demo-dev.okra.ng/link.html?isWebview=true&key=c81f3e05-7a5c-5727-8d33-1113a3c7a5e4&token=5d8a35224d8113507c7521ac&products=[%22auth%22,%22transactions%22,%22balance%22]&env=dev&clientName=Spinach"
-
   @override
   Widget build(BuildContext context) {
-     print("this is the url ${generateLinkInitializationUrl(widget.okraOptions).toString()}");
+    
+    
+
     return WebView(
-      initialUrl : generateLinkInitializationUrl(widget.okraOptions).toString(),
+      initialUrl : "https://mobile.okra.ng",
+      onPageFinished: (response){
+
+        String t = "{" + "\"clientName\" :"  +  "\"" + "Bassey"  +  "\""  + "}";
+
+        print(jsonEncode(widget.okraOptions.toJson()));
+
+        _controller.evaluateJavascript("openOkraWidget('$t')");
+      },
       javascriptMode : JavascriptMode.unrestricted,
       javascriptChannels: Set.from([
         JavascriptChannel(
@@ -67,16 +45,11 @@ class _WebState extends State<Web> {
               Navigator.pop(context);
             })
       ]),
-      onWebViewCreated: (webViewController){},
+      onWebViewCreated: (webViewController){_controller = webViewController;},
       navigationDelegate: (action){
-        String url = action.url;
-        Uri uri = Uri.parse(url);
-        uri.queryParameters.forEach((key,value) => {
-         if(key == "shouldClose" && value.toLowerCase() == 'true'){
-              Navigator.pop(context)
-           }
-         }
-
+        Uri uri = Uri.parse(action.url);
+        uri.queryParameters.forEach((key,value){
+         if(key == "shouldClose" && value.toLowerCase() == 'true'){Navigator.pop(context);}}
         );
         return NavigationDecision.navigate;
       },
