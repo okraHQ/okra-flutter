@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:okra_widget/Okra.dart';
 import 'package:okra_widget/models/Enums.dart';
-import 'package:okra_widget/utils/OkraOptions.dart';
+import 'package:okra_widget/utils/okra_options.dart';
 
 void main() => runApp(MyApp());
 
@@ -39,7 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -47,27 +46,34 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-
-        child: new Column(
-
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Click button to open Okra Widget'),
-            new RaisedButton(
+            RaisedButton(
               color: Colors.green,
-              child: new Text("Click me", style: TextStyle(
-                color: Colors.white
-              ),),
+              child: Text(
+                "Click me",
+                style: TextStyle(color: Colors.white),
+              ),
               onPressed: () {
                 setState(() {
-                  Okra.create(context, new OkraOptions(true,"c81f3e05-7a5c-5727-8d33-1113a3c7a5e4","5d8a35224d8113507c7521ac",[Product.auth,Product.balance],Environment.dev,"Bassey"));
+                  Okra.create(
+                      context,
+                      OkraOptions(
+                          true,
+                          "c81f3e05-7a5c-5727-8d33-1113a3c7a5e4",
+                          "5d8a35224d8113507c7521ac",
+                          [Product.auth, Product.balance],
+                          Environment.dev,
+                          "Bassey"));
                 });
               },
             )
           ],
         ),
       ),
-       // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

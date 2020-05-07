@@ -15,7 +15,7 @@ dependencies:
 ### Usage
 ```dart
 //Okra.create() static method takes in a context parameter and also and OkraOption parameter-->
- var okraOptions = new OkraOptions(true,"c81f3e05-7a5c-5727-8d33-1113a3c7a5e4","5d8a35224d8113507c7521ac",[Product.auth,Product.balance],Environment.dev,"Bassey");
+ var okraOptions = OkraOptions(true,"c81f3e05-7a5c-5727-8d33-1113a3c7a5e4","5d8a35224d8113507c7521ac",[Product.auth,Product.balance],Environment.dev,"Bassey");
  Okra.create(context, okraOptions);
 ```
 
