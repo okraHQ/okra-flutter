@@ -1,9 +1,11 @@
 import 'dart:core';
 
+import 'package:flutter/foundation.dart';
 import 'package:okra_widget/models/Enums.dart';
 import 'package:okra_widget/models/Guarantor.dart';
 
 class OkraOptions {
+  // TODO: Attach purpose of this parameter
   bool isWebview;
   String key = "";
   String token;
@@ -34,8 +36,14 @@ class OkraOptions {
   // ignore: non_constant_identifier_names
   String success_message;
 
-  OkraOptions(bool isWebview, String key, String token, List<Product> products,
-      Environment environment, String clientName) {
+  OkraOptions({
+    bool isWebview = true,
+    @required String key,
+    @required String token,
+    @required List<Product> products,
+    @required Environment environment,
+    @required String clientName,
+  }) {
     this.isWebview = isWebview;
     this.key = key;
     this.token = token;

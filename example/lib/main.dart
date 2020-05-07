@@ -59,14 +59,15 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 setState(() {
                   Okra.create(
-                      context,
-                      OkraOptions(
-                          true,
-                          "c81f3e05-7a5c-5727-8d33-1113a3c7a5e4",
-                          "5d8a35224d8113507c7521ac",
-                          [Product.auth, Product.balance],
-                          Environment.dev,
-                          "Bassey"));
+                    context,
+                    OkraOptions(
+                        isWebview: true,
+                        key: "c81f3e05-7a5c-5727-8d33-1113a3c7a5e4",
+                        token: "5d8a35224d8113507c7521ac",
+                        products: [Product.auth, Product.balance],
+                        environment: Environment.dev,
+                        clientName: "Bassey"),
+                  );
                 });
               },
             )
