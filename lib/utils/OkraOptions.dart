@@ -1,6 +1,7 @@
 import 'dart:core';
 
 import 'package:okra_widget/models/Enums.dart';
+import 'package:okra_widget/models/Filter.dart';
 import 'package:okra_widget/models/Guarantor.dart';
 
 class OkraOptions{
@@ -14,6 +15,7 @@ class OkraOptions{
   String imei = "";
   String clientName;
   String webhook;
+  String source = "flutter";
 
 
   String color;
@@ -35,6 +37,7 @@ class OkraOptions{
   String success_title;
   // ignore: non_constant_identifier_names
   String success_message;
+  Filter filter;
 
   OkraOptions(bool isWebview, String key, String token, List<Product> products, Environment environment, String clientName){
     this.isWebview = isWebview;
@@ -61,11 +64,13 @@ class OkraOptions{
       'callback_url': callback_url,
       'redirect_url': redirect_url,
       'logo': logo,
+      'source': source,
       'widget_success': widget_success,
       'currency': currency,
       'exp': exp,
       'success_title': success_title,
       'success_message': success_message,
+      'filter' : filter.toJson()
     };
   }
 

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:okra_widget/Okra.dart';
 import 'package:okra_widget/models/Enums.dart';
+import 'package:okra_widget/models/Guarantor.dart';
+import 'package:okra_widget/models/Filter.dart';
+import 'package:okra_widget/models/OkraHandler.dart';
 import 'package:okra_widget/utils/OkraOptions.dart';
 
 void main() => runApp(MyApp());
@@ -58,10 +61,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: new Text("Click me", style: TextStyle(
                 color: Colors.white
               ),),
-              onPressed: () {
-                setState(() {
-                  Okra.create(context, new OkraOptions(true,"c81f3e05-7a5c-5727-8d33-1113a3c7a5e4","5d8a35224d8113507c7521ac",[Product.auth,Product.balance],Environment.dev,"Bassey"));
-                });
+              onPressed: () async {
+                var banks = ["ecobank-nigeria", "fidelity-bank", "first-bank-of-nigeria", "first-city-monument-bank", "guaranty-trust-bank", "access-bank","unity-bank","alat", "polaris-bank","stanbic-ibtc-bank","standard-chartered-bank","sterling-bank","union-bank-of-nigeria","united-bank-for-africa","wema-bank"];
+                var option = new OkraOptions(true,"101ee499-beed-53ef-b9e4-1846790792a5","5da6358130a943486f33dced",[Product.auth,Product.balance],Environment.production,"Bassey");
+                option.guarantors = new Guarantor(true, "", 2);
+                option.filter = new Filter("all", banks);
+                OkraHandler reply = await Okra.create(context, option);
               },
             )
           ],

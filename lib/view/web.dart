@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:okra_widget/models/OkraHandler.dart';
 import 'package:okra_widget/utils/OkraOptions.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -28,27 +29,31 @@ class _WebState extends State<Web> {
     
 
     return WebView(
-      initialUrl : "https://mobile.okra.ng",
+      initialUrl : "https://c1b6b4fb.ngrok.io/mobile.html",//https://mobile.okra.ng
       onPageFinished: (response){
         String jsonOptions = jsonEncode(widget.okraOptions.toJson());
-        _controller.evaluateJavascript("openOkraWidget('$jsonOptions')");
+        print("this is the cause of this rubbis $jsonOptions");
+        //_controller.evaluateJavascript("openOkraWidget('$jsonOptions')");
       },
       javascriptMode : JavascriptMode.unrestricted,
       javascriptChannels: Set.from([
         JavascriptChannel(
-            name: 'Mobile',
+            name: 'FlutterOnSuccess',
             onMessageReceived: (JavascriptMessage message) {
-              Navigator.pop(context);
+              Navigator.pop(context, new OkraHandler(true, true, false, message.message));
+            }),
+        JavascriptChannel(
+            name: 'FlutterOnError',
+            onMessageReceived: (JavascriptMessage message) {
+              Navigator.pop(context, new OkraHandler(true, false, true, message.message));
+            }),
+        JavascriptChannel(
+            name: 'FlutterOnClose',
+            onMessageReceived: (JavascriptMessage message) {
+              Navigator.pop(context, new OkraHandler(true, false, false, message.message));
             })
       ]),
-      onWebViewCreated: (webViewController){_controller = webViewController;},
-      navigationDelegate: (action){
-        Uri uri = Uri.parse(action.url);
-        uri.queryParameters.forEach((key,value){
-         if(key == "shouldClose" && value.toLowerCase() == 'true'){Navigator.pop(context);}}
-        );
-        return NavigationDecision.navigate;
-      },
+      onWebViewCreated: (webViewController){_controller = webViewController;}
     );
   }
 }
