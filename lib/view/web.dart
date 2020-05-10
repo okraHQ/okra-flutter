@@ -29,11 +29,10 @@ class _WebState extends State<Web> {
     
 
     return WebView(
-      initialUrl : "https://c1b6b4fb.ngrok.io/mobile.html",//https://mobile.okra.ng
+      initialUrl : "https://mobile.okra.ng",
       onPageFinished: (response){
         String jsonOptions = jsonEncode(widget.okraOptions.toJson());
-        print("this is the cause of this rubbis $jsonOptions");
-        //_controller.evaluateJavascript("openOkraWidget('$jsonOptions')");
+        _controller.evaluateJavascript("openOkraWidget('$jsonOptions')");
       },
       javascriptMode : JavascriptMode.unrestricted,
       javascriptChannels: Set.from([
