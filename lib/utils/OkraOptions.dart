@@ -31,6 +31,8 @@ class OkraOptions{
   //filter: ${JSON.stringify(filter)},
   // ignore: non_constant_identifier_names
   String widget_success;
+  // ignore: non_constant_identifier_names
+  String widget_failed;
   String currency;
   String exp;
   // ignore: non_constant_identifier_names
@@ -66,6 +68,7 @@ class OkraOptions{
       'logo': logo,
       'source': source,
       'widget_success': widget_success,
+      'widget_failed' : widget_failed,
       'currency': currency,
       'exp': exp,
       'success_title': success_title,
