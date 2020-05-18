@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       key: "101ee499-beed-53ef-b9e4-1846790792a5",
                       token: "5d8a35224d8113507c7521ac",
                       products: [Product.auth, Product.balance],
-                      environment: Environment.dev,
+                      environment: "sandbox",
                       clientName: "Bassey");
 
                   options.guarantors = Guarantor(true, "", 2);

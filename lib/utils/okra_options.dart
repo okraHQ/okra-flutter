@@ -46,7 +46,7 @@ class OkraOptions {
     @required String key,
     @required String token,
     @required List<Product> products,
-    @required Environment environment,
+    @required String environment,
     @required String clientName,
   }) {
     this.isWebview = isWebview;
