@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:okra_widget/Okra.dart';
-import 'package:okra_widget/models/Enums.dart';
-import 'package:okra_widget/models/Guarantor.dart';
-import 'package:okra_widget/models/Filter.dart';
-import 'package:okra_widget/models/OkraHandler.dart';
-import 'package:okra_widget/utils/OkraOptions.dart';
+import 'package:okra_widget/okra_widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -42,7 +37,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -50,29 +44,51 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-
-        child: new Column(
-
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Click button to open Okra Widget'),
-            new RaisedButton(
-              color: Colors.green,
-              child: new Text("Click me", style: TextStyle(
-                color: Colors.white
-              ),),
-              onPressed: () async {
-                var banks = ["ecobank-nigeria", "fidelity-bank", "first-bank-of-nigeria", "first-city-monument-bank", "guaranty-trust-bank", "access-bank","unity-bank","alat", "polaris-bank","stanbic-ibtc-bank","standard-chartered-bank","sterling-bank","union-bank-of-nigeria","united-bank-for-africa","wema-bank"];
-                var option = new OkraOptions(true,"101ee499-beed-53ef-b9e4-1846790792a5","5da6358130a943486f33dced",[Product.auth,Product.balance],Environment.production,"Bassey");
-                option.guarantors = new Guarantor(true, "", 2);
-                option.filter = new Filter("all", banks);
-                OkraHandler reply = await Okra.create(context, option);
-              },
-            )
+            RaisedButton(
+                color: Colors.green,
+                child: Text(
+                  "Click me",
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: () async {
+                  var banks = [
+                    "ecobank-nigeria",
+                    "fidelity-bank",
+                    "first-bank-of-nigeria",
+                    "first-city-monument-bank",
+                    "guaranty-trust-bank",
+                    "access-bank",
+                    "unity-bank",
+                    "alat",
+                    "polaris-bank",
+                    "stanbic-ibtc-bank",
+                    "standard-chartered-bank",
+                    "sterling-bank",
+                    "union-bank-of-nigeria",
+                    "united-bank-for-africa",
+                    "wema-bank"
+                  ];
+
+                  OkraOptions options = OkraOptions(
+                      isWebview: true,
+                      key: "101ee499-beed-53ef-b9e4-1846790792a5",
+                      token: "5d8a35224d8113507c7521ac",
+                      products: [Product.auth, Product.balance],
+                      environment: Environment.dev,
+                      clientName: "Bassey");
+
+                  options.guarantors = Guarantor(true, "", 2);
+                  options.filter = Filter("all", banks);
+                  OkraHandler reply = await Okra.create(context, options);
+                }),
           ],
         ),
       ),
-       // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

@@ -1,10 +1,8 @@
-library okra_widget;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:okra_widget/utils/Helper.dart';
-import 'models/OkraHandler.dart';
-import 'utils/OkraOptions.dart';
+import 'models/okra_handler.dart';
+import 'utils/okra_options.dart';
 import 'view/web.dart';
 
 class Okra {
@@ -15,9 +13,10 @@ class Okra {
     String imei = await Helper.getDeviceIMEI();
     okraOptions.imei = imei == "Permission Denied" ? "null" : imei;
     return await Navigator.push(
-        context,
-        new MaterialPageRoute(
-            builder: (BuildContext context) =>
-                new Web(okraOptions: okraOptions)));
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => Web(okraOptions: okraOptions),
+      ),
+    );
   }
 }
