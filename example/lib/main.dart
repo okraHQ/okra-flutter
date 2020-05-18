@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:okra_widget/models/Filter.dart';
 import 'package:okra_widget/okra_widget.dart';
 
 void main() => runApp(MyApp());
@@ -82,22 +81,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       environment: Environment.dev,
                       clientName: "Bassey");
 
-                  options.guarantors = Guarantor(true, "", 2) as Guarantor;
-                  options.filter = Filter("all", banks) as Filter;
+                  options.guarantors = Guarantor(true, "", 2);
+                  options.filter = Filter("all", banks);
                   OkraHandler reply = await Okra.create(context, options);
-
-                  // setState(() {
-                  //   Okra.create(
-                  //     context,
-                  //    options,
-                  //   );
-                  // });
-                }
-                // ),
-                // onPressed: () async {
-
-                // },
-                ),
+                }),
           ],
         ),
       ),

@@ -1,9 +1,9 @@
 import 'dart:core';
 
 import 'package:flutter/foundation.dart';
-import 'package:okra_widget/models/Enums.dart';
-import 'package:okra_widget/models/Filter.dart';
-import 'package:okra_widget/models/Guarantor.dart';
+import 'package:okra_widget/models/enums.dart';
+import 'package:okra_widget/models/filter.dart';
+import 'package:okra_widget/models/guarantor.dart';
 
 class OkraOptions {
   // TODO: Attach purpose of this parameter
