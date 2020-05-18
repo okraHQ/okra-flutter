@@ -32,6 +32,7 @@ class _WebState extends State<Web> {
       initialUrl : "https://mobile.okra.ng",
       onPageFinished: (response){
         String jsonOptions = jsonEncode(widget.okraOptions.toJson());
+        print("kratus " + jsonOptions);
         _controller.evaluateJavascript("openOkraWidget('$jsonOptions')");
       },
       javascriptMode : JavascriptMode.unrestricted,

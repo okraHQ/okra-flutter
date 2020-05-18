@@ -10,7 +10,7 @@ class OkraOptions{
   String key = "";
   String token;
   List<Product> products = [];
-  Environment env;
+  String env;
   String uuid = "";
   String imei = "";
   String clientName;
@@ -41,7 +41,7 @@ class OkraOptions{
   String success_message;
   Filter filter;
 
-  OkraOptions(bool isWebview, String key, String token, List<Product> products, Environment environment, String clientName){
+  OkraOptions(bool isWebview, String key, String token, List<Product> products, String environment, String clientName){
     this.isWebview = isWebview;
     this.key = key;
     this.token = token;
@@ -56,7 +56,7 @@ class OkraOptions{
       'key': key,
       'token': token,
       'products': encondeListToJson(products),
-      'env': env.toString().split('.').last == "production_sandox" ? "production-sandbox" : env.toString().split('.').last,
+      'env': env,
       'clientName': clientName,
       'color': color,
       'limit': limit,
