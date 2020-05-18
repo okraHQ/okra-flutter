@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:okra_widget/models/okra_handler.dart';
 import 'package:okra_widget/utils/okra_options.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -21,31 +22,34 @@ class _WebState extends State<Web> {
   @override
   Widget build(BuildContext context) {
     return WebView(
-      initialUrl: "https://mobile.okra.ng",
-      onPageFinished: (response) {
-        String jsonOptions = jsonEncode(widget.okraOptions.toJson());
-        _controller.evaluateJavascript("openOkraWidget('$jsonOptions')");
-      },
-      javascriptMode: JavascriptMode.unrestricted,
-      javascriptChannels: Set.from([
-        JavascriptChannel(
-            name: 'Mobile',
-            onMessageReceived: (JavascriptMessage message) {
-              Navigator.pop(context);
-            })
-      ]),
-      onWebViewCreated: (webViewController) {
-        _controller = webViewController;
-      },
-      navigationDelegate: (action) {
-        Uri uri = Uri.parse(action.url);
-        uri.queryParameters.forEach((key, value) {
-          if (key == "shouldClose" && value.toLowerCase() == 'true') {
-            Navigator.pop(context);
-          }
+        initialUrl: "https://mobile.okra.ng",
+        onPageFinished: (response) {
+          String jsonOptions = jsonEncode(widget.okraOptions.toJson());
+          _controller.evaluateJavascript("openOkraWidget('$jsonOptions')");
+        },
+        javascriptMode: JavascriptMode.unrestricted,
+        javascriptChannels: Set.from([
+          JavascriptChannel(
+              name: 'FlutterOnSuccess',
+              onMessageReceived: (JavascriptMessage message) {
+                Navigator.pop(
+                    context, OkraHandler(true, true, false, message.message));
+              }),
+          JavascriptChannel(
+              name: 'FlutterOnError',
+              onMessageReceived: (JavascriptMessage message) {
+                Navigator.pop(
+                    context, OkraHandler(true, false, true, message.message));
+              }),
+          JavascriptChannel(
+              name: 'FlutterOnClose',
+              onMessageReceived: (JavascriptMessage message) {
+                Navigator.pop(context,
+                    new OkraHandler(true, false, false, message.message));
+              })
+        ]),
+        onWebViewCreated: (webViewController) {
+          _controller = webViewController;
         });
-        return NavigationDecision.navigate;
-      },
-    );
   }
 }

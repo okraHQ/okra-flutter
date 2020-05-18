@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:okra_widget/Okra.dart';
-import 'package:okra_widget/models/Enums.dart';
-import 'package:okra_widget/utils/okra_options.dart';
+import 'package:okra_widget/models/Filter.dart';
+import 'package:okra_widget/okra_widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -51,26 +50,54 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text('Click button to open Okra Widget'),
             RaisedButton(
-              color: Colors.green,
-              child: Text(
-                "Click me",
-                style: TextStyle(color: Colors.white),
-              ),
-              onPressed: () {
-                setState(() {
-                  Okra.create(
-                    context,
-                    OkraOptions(
-                        isWebview: true,
-                        key: "c81f3e05-7a5c-5727-8d33-1113a3c7a5e4",
-                        token: "5d8a35224d8113507c7521ac",
-                        products: [Product.auth, Product.balance],
-                        environment: Environment.dev,
-                        clientName: "Bassey"),
-                  );
-                });
-              },
-            )
+                color: Colors.green,
+                child: Text(
+                  "Click me",
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: () async {
+                  var banks = [
+                    "ecobank-nigeria",
+                    "fidelity-bank",
+                    "first-bank-of-nigeria",
+                    "first-city-monument-bank",
+                    "guaranty-trust-bank",
+                    "access-bank",
+                    "unity-bank",
+                    "alat",
+                    "polaris-bank",
+                    "stanbic-ibtc-bank",
+                    "standard-chartered-bank",
+                    "sterling-bank",
+                    "union-bank-of-nigeria",
+                    "united-bank-for-africa",
+                    "wema-bank"
+                  ];
+
+                  OkraOptions options = OkraOptions(
+                      isWebview: true,
+                      key: "101ee499-beed-53ef-b9e4-1846790792a5",
+                      token: "5d8a35224d8113507c7521ac",
+                      products: [Product.auth, Product.balance],
+                      environment: Environment.dev,
+                      clientName: "Bassey");
+
+                  options.guarantors = Guarantor(true, "", 2) as Guarantor;
+                  options.filter = Filter("all", banks) as Filter;
+                  OkraHandler reply = await Okra.create(context, options);
+
+                  // setState(() {
+                  //   Okra.create(
+                  //     context,
+                  //    options,
+                  //   );
+                  // });
+                }
+                // ),
+                // onPressed: () async {
+
+                // },
+                ),
           ],
         ),
       ),

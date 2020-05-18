@@ -1,23 +1,22 @@
-library okra_widget;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:okra_widget/utils/Helper.dart';
+import 'models/okra_handler.dart';
 import 'utils/okra_options.dart';
 import 'view/web.dart';
 
 class Okra {
-  static void create(BuildContext context, OkraOptions okraOptions) {
-    Helper.getDeviceUUID().then((uuid) {
-      okraOptions.uuid = uuid;
-      Helper.getDeviceIMEI().then((imei) {
-        okraOptions.imei = imei == "Permission Denied" ? "null" : imei;
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (BuildContext context) =>
-                    Web(okraOptions: okraOptions)));
-      });
-    });
+  static Future<OkraHandler> create(
+      BuildContext context, OkraOptions okraOptions) async {
+    String uuid = await Helper.getDeviceUUID();
+    okraOptions.uuid = uuid;
+    String imei = await Helper.getDeviceIMEI();
+    okraOptions.imei = imei == "Permission Denied" ? "null" : imei;
+    return await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => Web(okraOptions: okraOptions),
+      ),
+    );
   }
 }

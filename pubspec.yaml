@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  webview_flutter: ^0.3.0
+  webview_flutter: ^0.3.21
   device_info: ^0.4.1
   unique_identifier: ^0.0.3
   imei_plugin: ^1.1.6
