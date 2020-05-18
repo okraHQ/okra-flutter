@@ -12,10 +12,20 @@ dependencies:
   okra_widget: ^0.0.1
 ```
 
+On iOS, opt-in to the embedded views preview by adding a boolean property to the app's Info.plist file with the key     `io.flutter.embedded_views_preview` and the value `true`.
+
+```plist
+<dict>  
+  <key>io.flutter.embedded_views_preview</key>
+  <true/>  
+</dict>
+```
+
 ### Usage
 ```dart
 //Okra.create() static method takes in a context parameter and also and OkraOption parameter-->
- var okraOptions = new OkraOptions(true,"c81f3e05-7a5c-5727-8d33-1113a3c7a5e4","5d8a35224d8113507c7521ac",[Product.auth,Product.balance],Environment.dev,"Bassey");
+ var okraOptions =OkraOptions(isWebview: false, key: "c81f3e05-7a5c-5727-8d33-1113a3c7a5e4", token: "5d8a35224d8113507c7521ac",products: [Product.auth, Product.balance], environment: Environment.dev, clientName: "Bassey");
+
  Okra.create(context, okraOptions);
 ```
 

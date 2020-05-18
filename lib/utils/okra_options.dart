@@ -1,11 +1,12 @@
 import 'dart:core';
 
-import 'package:okra_widget/models/Enums.dart';
-import 'package:okra_widget/models/Filter.dart';
-import 'package:okra_widget/models/Guarantor.dart';
+import 'package:flutter/foundation.dart';
+import 'package:okra_widget/models/enums.dart';
+import 'package:okra_widget/models/filter.dart';
+import 'package:okra_widget/models/guarantor.dart';
 
-class OkraOptions{
-
+class OkraOptions {
+  // TODO: Attach purpose of this parameter
   bool isWebview;
   String key = "";
   String token;
@@ -16,7 +17,6 @@ class OkraOptions{
   String clientName;
   String webhook;
   String source = "flutter";
-
 
   String color;
   String limit;
@@ -41,7 +41,14 @@ class OkraOptions{
   String success_message;
   Filter filter;
 
-  OkraOptions(bool isWebview, String key, String token, List<Product> products, String environment, String clientName){
+  OkraOptions({
+    bool isWebview = true,
+    @required String key,
+    @required String token,
+    @required List<Product> products,
+    @required Environment environment,
+    @required String clientName,
+  }) {
     this.isWebview = isWebview;
     this.key = key;
     this.token = token;
@@ -62,7 +69,8 @@ class OkraOptions{
       'limit': limit,
       'isCorporate': isCorporate,
       'connectMessage': connectMessage,
-      'guarantors': guarantors != null ? guarantors.toJson() : new Guarantor(false, "", 2),
+      'guarantors':
+          guarantors != null ? guarantors.toJson() : Guarantor(false, "", 2),
       'callback_url': callback_url,
       'redirect_url': redirect_url,
       'logo': logo,
@@ -77,11 +85,9 @@ class OkraOptions{
     };
   }
 
-  List encondeListToJson(List<Product>list){
+  List encondeListToJson(List<Product> list) {
     List jsonList = List();
-    list.map((item)=>
-        jsonList.add(item.toString().split('.').last)
-    ).toList();
+    list.map((item) => jsonList.add(item.toString().split('.').last)).toList();
     return jsonList;
   }
 }
