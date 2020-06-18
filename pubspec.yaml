@@ -1,8 +1,7 @@
 name: okra_widget
 description: Okra link widget application
-version: 0.0.1
-author: Eshiett Oto-obong<beshiett@okra.ng>
-homepage: github.com/okraHQ/okra-flutter
+version: 0.0.2
+homepage: https://github.com/okraHQ/okra-flutter
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

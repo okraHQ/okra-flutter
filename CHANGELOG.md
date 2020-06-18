@@ -1,3 +1,8 @@
-## [0.0.1] - TODO: Add release date.
+0.0.2
+  - Fixed IOS bug
+  - Added Guarantors and Filters Object
+  - Added callback to listen to response from the widget
 
-* TODO: Describe initial release.
+
+0.0.1
+  - Add release date.
