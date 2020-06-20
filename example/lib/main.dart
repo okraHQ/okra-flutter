@@ -68,12 +68,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
                   OkraOptions options = OkraOptions(
                       isWebview: true,
-                      key: "101ee499-beed-53ef-b9e4-1846790792a5",
-                      token: "5d8a35224d8113507c7521ac",
+                      key: "beed-53ef-b9e4-16790792a5",
+                      token: "535224d811350c7521ac",
                       products: [Product.auth, Product.balance],
-                      environment: "sandbox",
+                      environment: "production-sandbox",
                       clientName: "Bassey");
-
+                  options.color = "#9013FE";
+                  options.limit = "3";
+                  options.isCorporate = false;
+                  options.connectMessage = "Which account do you want to connect with?";
+                  options.callback_url = "";
+                  options.redirect_url = "";
+                  options.logo = "https://swipe.ng/assets/img/newswipe-logo-dark.svg";
+                  options.widget_success = "Your account was successfully linked to SwipeNG";
+                  options.widget_failed = "An unknown error occurred, please try again.";
+                  options.currency = "NGN";
+                  options.exp = "";
+                  options.success_title = "null";
+                  options.success_message = "null";
+                  options.guarantors = new Guarantor(true,"SwipeNG requires you to add guarantors",1);
+                  options.filter = new Filter("all", banks);
                   options.guarantors = Guarantor(true, "", 2);
                   options.filter = Filter("all", banks);
                   OkraHandler reply = await Okra.create(context, options);

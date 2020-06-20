@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:okra_widget/utils/Helper.dart';
+import 'package:okra_widget/utils/helper.dart';
 import 'models/okra_handler.dart';
 import 'utils/okra_options.dart';
 import 'view/web.dart';

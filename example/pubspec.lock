@@ -70,7 +70,7 @@ packages:
       name: device_info
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.2+3"
+    version: "0.4.2+4"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -211,7 +211,7 @@ packages:
       name: webview_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.21"
+    version: "0.3.22+1"
   xml:
     dependency: transitive
     description:
