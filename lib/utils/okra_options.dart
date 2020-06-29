@@ -8,6 +8,7 @@ import 'package:okra_widget/models/guarantor.dart';
 class OkraOptions {
   // TODO: Attach purpose of this parameter
   bool isWebview;
+  bool noPeriodic;
   String key = "";
   String token;
   List<Product> products = [];
@@ -74,6 +75,7 @@ class OkraOptions {
       'callback_url': callback_url,
       'redirect_url': redirect_url,
       'logo': logo,
+      'noPeriodic' : noPeriodic,
       'source': source,
       'widget_success': widget_success,
       'widget_failed' : widget_failed,
