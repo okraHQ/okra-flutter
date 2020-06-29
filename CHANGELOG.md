@@ -1,3 +1,7 @@
+0.0.3
+  - Added no periodic.
+  - fixed and issue with File not found, for Enum, Guarantors classes.
+
 0.0.2
   - Fixed IOS bug
   - Added Guarantors and Filters Object
