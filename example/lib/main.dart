@@ -68,9 +68,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
                   OkraOptions options = OkraOptions(
                       isWebview: true,
-                      key: "beed-53ef-b9e4-16790792a5",
-                      token: "535224d811350c7521ac",
-                      products: [Product.auth, Product.balance],
+                      key: "-af49-2d805fa8f798",
+                      token: "58130a943486f33dced",
+                      products: [Product.auth,
+                        Product.balance,
+                        Product.identity,
+                        Product.transactions],
                       environment: "production-sandbox",
                       clientName: "Bassey");
                   options.color = "#9013FE";
@@ -83,14 +86,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   options.widget_success = "Your account was successfully linked to SwipeNG";
                   options.widget_failed = "An unknown error occurred, please try again.";
                   options.currency = "NGN";
+                  options.noPeriodic = true;
                   options.exp = "";
                   options.success_title = "null";
                   options.success_message = "null";
-                  options.guarantors = new Guarantor(true,"SwipeNG requires you to add guarantors",1);
-                  options.filter = new Filter("all", banks);
-                  options.guarantors = Guarantor(true, "", 2);
+                  options.guarantors = new Guarantor(false,"""SwipeNG requires you to add guarantors""",1);
                   options.filter = Filter("all", banks);
                   OkraHandler reply = await Okra.create(context, options);
+                  print("-----------------------------------------------");
+                  print(reply.isSuccessful);
+                  print(reply.data);
                 }),
           ],
         ),
