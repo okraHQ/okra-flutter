@@ -1,3 +1,7 @@
+0.0.4
+  - Handled onSuccess and onError response.
+  - Added loader to indicate when page is loading.
+
 0.0.3
   - Added no periodic.
   - fixed and issue with File not found, for Enum, Guarantors classes.
