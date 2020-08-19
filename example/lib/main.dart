@@ -94,7 +94,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   options.filter = Filter("all", banks);
                   OkraHandler reply = await Okra.create(context, options);
                   print("-----------------------------------------------");
-                  print(reply.isSuccessful);
                   print(reply.data);
                 }),
           ],

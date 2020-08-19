@@ -21,7 +21,7 @@ class Web extends StatefulWidget {
 class _WebState extends State<Web> {
   WebViewController _controller;
   bool isLoading = true;
-  OkraHandler okraHandler;
+  OkraHandler okraHandler = new OkraHandler(false, false, false, true, "");
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +43,13 @@ class _WebState extends State<Web> {
                 name: 'FlutterOnSuccess',
                 onMessageReceived: (JavascriptMessage message) {
                   okraHandler =
-                      new OkraHandler(true, true, false, message.message);
+                      new OkraHandler(true, true, false, false, message.message);
                 }),
             JavascriptChannel(
                 name: 'FlutterOnError',
                 onMessageReceived: (JavascriptMessage message) {
                   okraHandler =
-                      new OkraHandler(true, false, true, message.message);
+                      new OkraHandler(true, false, true, false,  message.message);
                 }),
             JavascriptChannel(
                 name: 'FlutterOnClose',
