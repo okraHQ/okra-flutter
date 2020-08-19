@@ -10,8 +10,8 @@ class Okra {
       BuildContext context, OkraOptions okraOptions) async {
     String uuid = await Helper.getDeviceUUID();
     okraOptions.uuid = uuid;
-    String imei = await Helper.getDeviceIMEI();
-    okraOptions.imei = imei == "Permission Denied" ? "null" : imei;
+    //String imei = await Helper.getDeviceIMEI();
+    okraOptions.imei = uuid;// == "Permission Denied" ? "null" : imei;
     return await Navigator.push(
       context,
       MaterialPageRoute(
