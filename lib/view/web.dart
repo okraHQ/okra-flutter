@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:okra_widget/models/okra_handler.dart';
 import 'package:okra_widget/utils/okra_options.dart';
@@ -32,6 +34,10 @@ class _WebState extends State<Web> {
             _controller.evaluateJavascript("openOkraWidget('$jsonOptions')");
           },
           javascriptMode: JavascriptMode.unrestricted,
+          gestureRecognizers: [
+            Factory(() => VerticalDragGestureRecognizer()),
+            Factory(() => TapGestureRecognizer()),
+          ].toSet(),
           javascriptChannels: Set.from([
             JavascriptChannel(
                 name: 'FlutterOnSuccess',
