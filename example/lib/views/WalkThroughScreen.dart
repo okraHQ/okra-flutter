@@ -16,7 +16,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
            width: 10,
            height: 10,
            decoration: BoxDecoration(
-             border: Border.all(color: Color.fromARGB(255, 230, 200, 80),width: 2),
+             border: Border.all(color: Color.fromARGB(255, 149, 131, 102),width: 2),
              color: Color.fromARGB(255, 255, 255, 255),
              borderRadius: BorderRadius.circular(20),
            ),
@@ -26,7 +26,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
           width: 10,
           height: 10,
           decoration: BoxDecoration(
-              color: Color.fromARGB(255, 235, 200, 80),
+              color: Color.fromARGB(255, 149, 131, 102),
               borderRadius: BorderRadius.circular(20)
           ),
         ),
@@ -35,7 +35,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
           width: 10,
           height: 10,
           decoration: BoxDecoration(
-              border: Border.all(color: Color.fromARGB(255, 230, 200, 80),width: 2),
+              border: Border.all(color: Color.fromARGB(255, 149, 131, 102),width: 2),
               color: Color.fromARGB(255, 255, 255, 255),
               borderRadius: BorderRadius.circular(20)
           ),
@@ -51,7 +51,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Text("Welcome to Carrot", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),),
+            new Text("Welcome to Carrot", style: TextStyle(fontSize: 25, color: Color.fromARGB(255, 149, 131, 102), fontWeight: FontWeight.w600),),
             new SizedBox(height: 50),
             new Container(
               width: double.infinity,
@@ -72,7 +72,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
               child: new Text("Unleash the power of Okra and monitor all your banking activities and transaction in one place.", style: TextStyle(fontSize: 16),textAlign: TextAlign.center,),),
             new SizedBox(height: 50),
             new FlatButton(
-                onPressed: (){}, color: Color.fromARGB(255, 235, 200, 80),
+                onPressed: (){}, color: Color.fromARGB(255, 149, 131, 102),
                 child: new Text("Start your journey",
                   style: TextStyle(color: Colors.white),)
             )
