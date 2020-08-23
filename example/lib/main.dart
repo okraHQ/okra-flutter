@@ -1,3 +1,4 @@
+import 'package:example/views/WalkThroughScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:okra_widget/okra_widget.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Okra Test Widget'),
+      home: WalkThroughScreen(),//MyHomePage(title: 'Okra Test Widget'),
     );
   }
 }
