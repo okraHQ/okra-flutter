@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Okra Link Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: "Poppins"
       ),
       home: WalkThroughScreen(),//MyHomePage(title: 'Okra Test Widget'),
     );
