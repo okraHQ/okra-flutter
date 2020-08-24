@@ -1,3 +1,4 @@
+import 'package:example/components/BankCard.dart';
 import 'package:flutter/material.dart';
 import 'package:okra_widget/okra_widget.dart';
 
@@ -10,26 +11,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: new Icon(Icons.subject, color: Color.fromARGB(255, 149, 131, 102), size: 40,),
+        backgroundColor: Colors.transparent,
+        elevation : 0,
+      ),
       body: new ListView(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
         children: <Widget>[
-          new Card(
-            color : Colors.red,
-            child: new SizedBox(
-              height: 120,
-              child: new Column(
-                children: <Widget>[
-                  new Text("Zenith Bank"),
-                  new Text("2100014645 (Savings)"),
-                  new Text("N 24,000"),
-                ],
-              )
-            ),
-          )
+             new BankCard(),
+             new BankCard()
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        elevation: 0,
+        backgroundColor: Color.fromARGB(255, 149, 131, 102),
         onPressed: (){
           callOkra(context);
         },
@@ -39,17 +35,15 @@ class _HomeScreenState extends State<HomeScreen> {
         bottomNavigationBar: BottomAppBar(
           child: Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              new IconButton(icon: Icon(Icons.home), onPressed: null),
-              new IconButton(icon: Icon(Icons.home), onPressed: null),
-              new IconButton(icon: Icon(Icons.home), onPressed: null),
-              new IconButton(icon: Icon(Icons.home), onPressed: null),
+              new IconButton(icon: Icon(Icons.home), onPressed: (){}, color: Color.fromARGB(255, 149, 131, 102),),
+              new IconButton(icon: Icon(Icons.settings), onPressed: (){}, color: Color.fromARGB(255, 149, 131, 102),),
             ],
           ),
           shape: CircularNotchedRectangle(),
           elevation: 24,
-          color: Colors.blueGrey,
+          color: Colors.white,
         ),
     );
   }

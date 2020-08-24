@@ -30,6 +30,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_svg: ^0.17.4
 
 
 # For information on the generic Dart part of this file, see the
@@ -49,6 +50,8 @@ flutter:
     - asset/images/finance.png
     - asset/images/money_transfer.png
     - asset/images/transaction.png
+    - asset/images/sterling.svg
+    - asset/images/gtbank.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
