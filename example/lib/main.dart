@@ -1,3 +1,4 @@
+import 'package:example/views/HomeScreen.dart';
 import 'package:example/views/WalkThroughScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:okra_widget/okra_widget.dart';
@@ -9,12 +10,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Okra Link Demo',
+      title: 'Carrot',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: "Poppins"
       ),
-      home: WalkThroughScreen(),//MyHomePage(title: 'Okra Test Widget'),
+      home: WalkThroughScreen(),
+      routes: {
+        '/intro': (context) => WalkThroughScreen(),
+        '/home': (context) => HomeScreen(),
+      },
     );
   }
 }

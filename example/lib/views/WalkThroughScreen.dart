@@ -72,7 +72,13 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
               child: new Text("Unleash the power of Okra and monitor all your banking activities and transaction in one place.", style: TextStyle(fontSize: 16),textAlign: TextAlign.center,),),
             new SizedBox(height: 50),
             new FlatButton(
-                onPressed: (){}, color: Color.fromARGB(255, 149, 131, 102),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                onPressed: (){
+                  Navigator.pushNamed(context, '/home');
+                },
+                color: Color.fromARGB(255, 149, 131, 102),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0),),
                 child: new Text("Start your journey",
                   style: TextStyle(color: Colors.white),)
             )
