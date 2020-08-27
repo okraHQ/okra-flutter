@@ -1,7 +1,10 @@
+import 'package:example/models/BankDetail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class BankCard extends StatefulWidget {
+  final BankDetail bankDetail;
+  BankCard(this.bankDetail);
   @override
   _BankCardState createState() => _BankCardState();
 }
@@ -28,7 +31,7 @@ class _BankCardState extends State<BankCard> {
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [Colors.redAccent, Colors.red, Colors.orange])),
+                colors: [Colors.redAccent, Colors.red])),
         child: new SizedBox(
             height: 120,
             child: new Padding(
@@ -42,8 +45,13 @@ class _BankCardState extends State<BankCard> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       new Text("GT Bank", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),),
-                      new Text("2100014645 - Savings", style: TextStyle(color: Colors.white, fontSize: 14,)),
-                      new Text("N 24,000", style: TextStyle(color: Colors.white, fontSize: 14,)),
+                      new Text(
+                          "2100014645 - Savings",
+                          style: TextStyle(color: Colors.white, fontSize: 14,)),
+                      new Text(
+                          widget.bankDetail != null ? widget.bankDetail.availableBalance.toString() : "",
+                          style: TextStyle(color: Colors.white, fontSize: 14,),
+                      ),
                     ],
                   ),
                 ],
