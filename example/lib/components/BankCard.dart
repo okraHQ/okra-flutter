@@ -1,5 +1,6 @@
 import 'package:example/models/BankDetail.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
 class BankCard extends StatefulWidget {
@@ -46,7 +47,7 @@ class _BankCardState extends State<BankCard> {
                     children: <Widget>[
                       new Text("GT Bank", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),),
                       new Text(
-                          "2100014645 - Savings",
+                          widget.bankDetail != null ? "${widget.bankDetail.nuban} - ${widget.bankDetail.type}" : "",
                           style: TextStyle(color: Colors.white, fontSize: 14,)),
                       new Text(
                           widget.bankDetail != null ? widget.bankDetail.availableBalance.toString() : "",

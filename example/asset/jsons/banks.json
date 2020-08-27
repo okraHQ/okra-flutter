@@ -1,0 +1,94 @@
+{
+    "banks": [
+      {
+        "id": "5d6fe57a4099cc4b210bbeb1",
+        "name": "First Bank of Nigeria",
+        "slug": "first-bank-of-nigeria"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbeae",
+        "name": "Ecobank Nigeria",
+        "slug": "ecobank-nigeria"
+        },
+      {
+        "id": "5d6fe57a4099cc4b210bbeb0",
+        "name": "Fidelity Bank",
+        "slug": "fidelity-bank"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbeb2",
+        "name": "First City Monument Bank",
+        "slug": "first-city-monument-bank"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbeb3",
+        "name": "Guaranty Trust Bank",
+        "slug": "guaranty-trust-bank"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbeb4",
+        "name": "Heritage Bank",
+        "slug": "heritage-bank"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbeb6",
+        "name": "Stanbic IBTC Bank",
+        "slug": "stanbic-ibtc-bank"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbeb8",
+        "name": "Sterling Bank",
+        "slug": "sterling-bank"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbeb9",
+        "name": "Union Bank of Nigeria",
+        "slug": "union-bank-of-nigeria"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbeb5",
+        "name": "Polaris Bank",
+        "slug": "polaris-bank"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbeb7",
+        "name": "Standard Chartered Bank",
+        "slug": "standard-chartered-bank"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbeba",
+        "name": "Keystone Bank",
+        "slug": "keystone-bank"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbebb",
+        "name": "United Bank For Africa",
+        "slug": "united-bank-for-africa"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbebe",
+        "name": "Alat",
+        "slug": "alat"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbebc",
+        "name": "Wema Bank",
+        "slug": "wema-bank"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbebd",
+        "name": "Unity Bank",
+        "slug": "unity-bank"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbec2",
+        "name": "Zenith Bank",
+        "slug": "zenith-bank"
+      },
+      {
+        "id": "5d6fe57a4099cc4b210bbec0",
+        "name": "Access Bank",
+        "slug": "access-bank"
+      }
+    ]
+}
