@@ -90,9 +90,11 @@ class _HomeScreenState extends State<HomeScreen> {
           print(parsedJson["balance"]["data"]["formatted"][0]);
           print("----------------------------------------------------");
           listOfBankDetail = parseBalance(parsedJson["balance"]["data"]["formatted"]);
-          var bankJson = loadBankJsonFromAsset();
-          var bankList = parseBank(bankJson);
-          var foundBank = getBankById("", bankList);
+          var recordId = parsedJson["record_id"];
+          var bankJson = await loadBankJsonFromAsset();
+          var parsedBankJson = json.decode(bankJson);
+          var bankList = parseBank(parsedBankJson["banks"]);
+          var foundBank = getBankById(parsedJson["bank_id"], bankList);
           setState(() {});
         },
         child: Icon(Icons.add),

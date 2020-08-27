@@ -40,7 +40,7 @@ class _BankCardState extends State<BankCard> {
               child: new Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  new SvgPicture.asset("asset/images/gtbank.svg", width: 100,),
+                  new SvgPicture.asset("asset/images/guaranty-trust-bank.svg", width: 100,),
                   new Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

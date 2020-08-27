@@ -51,8 +51,8 @@ flutter:
     - asset/images/finance.png
     - asset/images/money_transfer.png
     - asset/images/transaction.png
-    - asset/images/sterling.svg
-    - asset/images/gtbank.svg
+    - asset/images/sterling-bank.svg
+    - asset/images/guaranty-trust-bank.svg
     - asset/jsons/banks.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
