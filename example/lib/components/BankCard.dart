@@ -33,7 +33,10 @@ class _BankCardState extends State<BankCard> {
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [HexColor("#ffb74093"), Colors.red])),
+                colors: [
+                  HexColor(widget.bankDetail != null ? widget.bankDetail.bank.primaryColor : "#ffffff"),
+                  HexColor(widget.bankDetail != null ? widget.bankDetail.bank.secondaryColor : "#ffffff")
+                ])),
         child: new SizedBox(
             height: 120,
             child: new Padding(
