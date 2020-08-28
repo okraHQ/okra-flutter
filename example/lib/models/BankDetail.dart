@@ -1,5 +1,9 @@
+import 'package:example/models/Bank.dart';
+
 class BankDetail {
   BankDetail();
+
+  Bank bank = new Bank();
   double availableBalance;
   double ledgerBalance;
   String currency;

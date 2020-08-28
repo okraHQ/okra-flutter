@@ -3,92 +3,129 @@
       {
         "id": "5d6fe57a4099cc4b210bbeb1",
         "name": "First Bank of Nigeria",
-        "slug": "first-bank-of-nigeria"
+        "slug": "first-bank-of-nigeria",
+        "primaryColor": "#162d4c",
+        "secondaryColor": "#162d4c"
       },
       {
         "id": "5d6fe57a4099cc4b210bbeae",
         "name": "Ecobank Nigeria",
-        "slug": "ecobank-nigeria"
+        "slug": "ecobank-nigeria",
+        "primaryColor": "#00577a",
+        "secondaryColor": "#00577a"
         },
       {
         "id": "5d6fe57a4099cc4b210bbeb0",
         "name": "Fidelity Bank",
-        "slug": "fidelity-bank"
+        "slug": "fidelity-bank",
+        "primaryColor": "#11237d",
+        "secondaryColor": "#11237d"
       },
       {
         "id": "5d6fe57a4099cc4b210bbeb2",
         "name": "First City Monument Bank",
-        "slug": "first-city-monument-bank"
+        "slug": "first-city-monument-bank",
+        "primaryColor": "#5c2682",
+        "secondaryColor": "#5c2682"
       },
       {
         "id": "5d6fe57a4099cc4b210bbeb3",
         "name": "Guaranty Trust Bank",
-        "slug": "guaranty-trust-bank"
+        "slug": "guaranty-trust-bank",
+        "primaryColor": "#CB3A14",
+        "secondaryColor": "#CB3A14"
       },
       {
         "id": "5d6fe57a4099cc4b210bbeb4",
         "name": "Heritage Bank",
-        "slug": "heritage-bank"
+        "slug": "heritage-bank",
+        "primaryColor": "#68ac48",
+        "secondaryColor": "#68ac48"
       },
       {
         "id": "5d6fe57a4099cc4b210bbeb6",
         "name": "Stanbic IBTC Bank",
-        "slug": "stanbic-ibtc-bank"
+        "slug": "stanbic-ibtc-bank",
+        "primaryColor": "#0D3F87",
+        "secondaryColor": "#0D3F87"
       },
       {
         "id": "5d6fe57a4099cc4b210bbeb8",
         "name": "Sterling Bank",
-        "slug": "sterling-bank"
+        "slug": "sterling-bank",
+        "primaryColor": "#BF1F2D",
+        "secondaryColor": "#BF1F2D"
       },
       {
         "id": "5d6fe57a4099cc4b210bbeb9",
         "name": "Union Bank of Nigeria",
-        "slug": "union-bank-of-nigeria"
+        "slug": "union-bank-of-nigeria",
+        "primaryColor": "#03b1f0",
+        "secondaryColor": "#06b4f1",
+        "tertiaryColor" : "#05b3f1"
       },
       {
         "id": "5d6fe57a4099cc4b210bbeb5",
         "name": "Polaris Bank",
-        "slug": "polaris-bank"
+        "slug": "polaris-bank",
+        "primaryColor": "#8934AD",
+        "secondaryColor": "#8934AD"
       },
       {
         "id": "5d6fe57a4099cc4b210bbeb7",
         "name": "Standard Chartered Bank",
-        "slug": "standard-chartered-bank"
+        "slug": "standard-chartered-bank",
+        "primaryColor": "#0A395A",
+        "secondaryColor": "#0A395A"
       },
       {
         "id": "5d6fe57a4099cc4b210bbeba",
         "name": "Keystone Bank",
-        "slug": "keystone-bank"
+        "slug": "keystone-bank",
+        "primaryColor": "#133f77",
+        "secondaryColor": "#133f77"
       },
       {
         "id": "5d6fe57a4099cc4b210bbebb",
         "name": "United Bank For Africa",
-        "slug": "united-bank-for-africa"
+        "slug": "united-bank-for-africa",
+        "primaryColor": "#D71920",
+        "secondaryColor": "#D71920"
       },
       {
         "id": "5d6fe57a4099cc4b210bbebe",
         "name": "Alat",
-        "slug": "alat"
+        "slug": "alat",
+        "primaryColor": "#C7001D",
+        "secondaryColor": "#C7001D"
       },
       {
         "id": "5d6fe57a4099cc4b210bbebc",
         "name": "Wema Bank",
-        "slug": "wema-bank"
+        "slug": "wema-bank",
+        "primaryColor": "#990d81",
+        "secondaryColor": "#990d81"
       },
       {
         "id": "5d6fe57a4099cc4b210bbebd",
         "name": "Unity Bank",
-        "slug": "unity-bank"
+        "slug": "unity-bank",
+        "primaryColor": "",
+        "secondaryColor": ""
       },
       {
         "id": "5d6fe57a4099cc4b210bbec2",
         "name": "Zenith Bank",
-        "slug": "zenith-bank"
+        "slug": "zenith-bank",
+        "primaryColor": "#808285",
+        "secondaryColor": "#808285"
       },
       {
         "id": "5d6fe57a4099cc4b210bbec0",
         "name": "Access Bank",
-        "slug": "access-bank"
+        "slug": "access-bank",
+        "primaryColor": "#114185",
+        "secondaryColor": "#114185"
       }
     ]
 }

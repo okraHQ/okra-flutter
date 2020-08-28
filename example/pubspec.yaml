@@ -51,8 +51,22 @@ flutter:
     - asset/images/finance.png
     - asset/images/money_transfer.png
     - asset/images/transaction.png
-    - asset/images/sterling-bank.svg
-    - asset/images/guaranty-trust-bank.svg
+    - asset/images/banks/access-bank.svg
+    - asset/images/banks/alat.svg
+    - asset/images/banks/fidelity-bank.svg
+    - asset/images/banks/first-bank-of-nigeria.svg
+    - asset/images/banks/first-city-monument-bank.svg
+    - asset/images/banks/guaranty-trust-bank.svg
+    - asset/images/banks/heritage-bank.svg
+    - asset/images/banks/keystone-bank.svg
+    - asset/images/banks/polaris-bank.svg
+    - asset/images/banks/stanbic-ibtc-bank.svg
+    - asset/images/banks/standard-chartered-bank.svg
+    - asset/images/banks/sterling-bank.svg
+    - asset/images/banks/union-bank-of-nigeria.svg
+    - asset/images/banks/united-bank-for-africa.svg
+    - asset/images/banks/wema-bank.svg
+    - asset/images/banks/zenith-bank.svg
     - asset/jsons/banks.json
 
   # An image asset can refer to one or more resolution-specific "variants", see

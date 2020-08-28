@@ -89,12 +89,12 @@ class _HomeScreenState extends State<HomeScreen> {
           print("----------------------------------------------------");
           print(parsedJson["balance"]["data"]["formatted"][0]);
           print("----------------------------------------------------");
-          listOfBankDetail = parseBalance(parsedJson["balance"]["data"]["formatted"]);
           var recordId = parsedJson["record_id"];
           var bankJson = await loadBankJsonFromAsset();
           var parsedBankJson = json.decode(bankJson);
           var bankList = parseBank(parsedBankJson["banks"]);
           var foundBank = getBankById(parsedJson["bank_id"], bankList);
+          listOfBankDetail = parseBalance(foundBank, parsedJson["balance"]["data"]["formatted"]);
           setState(() {});
         },
         child: Icon(Icons.add),
@@ -129,12 +129,13 @@ Bank getBankById(String id, List<Bank> banks){
 }
 
 
-List<BankDetail> parseBalance(dynamic json){
+List<BankDetail> parseBalance(Bank bank, dynamic json){
   List<BankDetail> listOfBankDetail = new List();
   for( var index = 0 ; index <= 10; index++ ) {
     try {
       var tempJson = json[index];
       var parsedBankDetail = BankDetail.fromJson(tempJson);
+      parsedBankDetail.bank = bank;
       listOfBankDetail.add(parsedBankDetail);
     }catch(exception){
       break;
