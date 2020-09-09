@@ -68,13 +68,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
                   OkraOptions options = OkraOptions(
                       isWebview: true,
-                      key: "1ce5-58bf-af49-2d805fa8f798",
-                      token: "358130a943486f33dced",
+                      key: "a82d548a-54a1-5092-8f9a-413c0333cb21",
+                      token: "5ed0ca208d00251334254797",
                       products: [Product.auth,
                         Product.balance,
                         Product.identity,
                         Product.transactions],
-                      environment: "production-sandbox",
+                      environment: "production",
                       clientName: "Bassey");
                   options.color = "#9013FE";
                   options.limit = "3";
