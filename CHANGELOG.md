@@ -1,3 +1,6 @@
+2.0.0-beta
+  - Uses the new Okra widget
+
 0.0.5
   - updated the webview to 0.3.22
   - Added onTap and Vertical Scroll Gesture detectors
