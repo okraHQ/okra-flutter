@@ -63,17 +63,26 @@ class _MyHomePageState extends State<MyHomePage> {
                     "sterling-bank",
                     "union-bank-of-nigeria",
                     "united-bank-for-africa",
-                    "wema-bank"
+                    "wema-bank",
+                    "rubies-bank",
+                    "kuda-bank"
                   ];
 
                   OkraOptions options = OkraOptions(
                       isWebview: true,
                       key: "a82d548a-54a1-5092-8f9a-413c0333cb21",
                       token: "5ed0ca208d00251334254797",
-                      products: [Product.auth,
+                      products: [
+                        Product.auth,
                         Product.balance,
                         Product.identity,
-                        Product.transactions],
+                        Product.transactions, 
+                        Product.income, 
+                        Product.guarantors, 
+                        Product.periodic_transactions, 
+                        Product.periodic_balance, 
+                        Product.direct_debit
+                      ],
                       environment: "production",
                       clientName: "Bassey");
                   options.color = "#9013FE";
@@ -82,15 +91,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   options.connectMessage = "Which account do you want to connect with?";
                   options.callback_url = "";
                   options.redirect_url = "";
-                  options.logo = "https://swipe.ng/assets/img/newswipe-logo-dark.svg";
-                  options.widget_success = "Your account was successfully linked to SwipeNG";
+                  options.logo = "https://dash.okra.ng/static/media/okra-logo.514fd943.png'";
+                  options.widget_success = "Your account was successfully linked to Okra";
                   options.widget_failed = "An unknown error occurred, please try again.";
                   options.currency = "NGN";
                   options.noPeriodic = true;
                   options.exp = "";
                   options.success_title = "null";
                   options.success_message = "null";
-                  options.guarantors = new Guarantor(false,"""SwipeNG requires you to add guarantors""",1);
+                  options.guarantors = new Guarantor(false,"""Okra requires you to add guarantors""",1);
                   options.filter = Filter("all", banks);
                   OkraHandler reply = await Okra.create(context, options);
                   print("-----------------------------------------------");
