@@ -11,7 +11,7 @@ class OkraOptions {
   bool noPeriodic = false;
   String key = "";
   String token;
-  List<Product> products = [];
+  List<String> products = [];
   String env;
   String uuid = "";
   String imei = "";
@@ -46,7 +46,7 @@ class OkraOptions {
     bool isWebview = true,
     @required String key,
     @required String token,
-    @required List<Product> products,
+    @required List<String> products,
     @required String environment,
     @required String clientName,
   }) {
@@ -63,7 +63,7 @@ class OkraOptions {
       'isWebview': isWebview,
       'key': key,
       'token': token,
-      'products': encondeListToJson(products),
+      'products': encodeListToJson(products),
       'env': env,
       'clientName': clientName,
       'color': color,
@@ -87,9 +87,9 @@ class OkraOptions {
     };
   }
 
-  List encondeListToJson(List<Product> list) {
+  List encodeListToJson(List<String> list) {
     List jsonList = List();
-    list.map((item) => jsonList.add(item.toString().split('.').last)).toList();
+    list.map((item) => jsonList.add(item)).toList();
     return jsonList;
   }
 }

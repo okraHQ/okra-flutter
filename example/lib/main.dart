@@ -73,15 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       key: "a82d548a-54a1-5092-8f9a-413c0333cb21",
                       token: "5ed0ca208d00251334254797",
                       products: [
-                        Product.auth,
-                        Product.balance,
-                        Product.identity,
-                        Product.transactions, 
-                        Product.income, 
-                        Product.guarantors, 
-                        Product.periodic_transactions, 
-                        Product.periodic_balance, 
-                        Product.direct_debit
+                        "auth",
+                        "balance",
+                        "identity",
+                        "transactions"
                       ],
                       environment: "production",
                       clientName: "Bassey");

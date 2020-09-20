@@ -31,6 +31,7 @@ class _WebState extends State<Web> {
           onPageFinished: (response) {
             setState(() {isLoading = false;});
             String jsonOptions = jsonEncode(widget.okraOptions.toJson());
+            print("jsonOptions  $jsonOptions");
             _controller.evaluateJavascript("openOkraWidget('$jsonOptions')");
           },
           javascriptMode: JavascriptMode.unrestricted,
