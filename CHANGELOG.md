@@ -1,3 +1,6 @@
+2.0.1-beta
+  - Takes list of products as a string
+
 2.0.0-beta
   - Uses the new Okra widget
 
