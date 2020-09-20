@@ -76,12 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Product.auth,
                         Product.balance,
                         Product.identity,
-                        Product.transactions, 
-                        Product.income, 
-                        Product.guarantors, 
-                        Product.periodic_transactions, 
-                        Product.periodic_balance, 
-                        Product.direct_debit
+                        Product.transactions
                       ],
                       environment: "production",
                       clientName: "Bassey");
