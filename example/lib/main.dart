@@ -94,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   options.exp = "";
                   options.success_title = "null";
                   options.success_message = "null";
-                  options.guarantors = new Guarantor(false,"""Okra requires you to add guarantors""",1);
+                  options.guarantors = new Guarantor(false,"Okra requires you to add guarantors",1);
                   options.filter = Filter("all", banks);
                   OkraHandler reply = await Okra.create(context, options);
                   print("-----------------------------------------------");
