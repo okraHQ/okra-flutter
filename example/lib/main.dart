@@ -70,8 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
                   OkraOptions options = OkraOptions(
                       isWebview: true,
-                      key: "a82d548a-54a1-5092-8f9a-413c0333cb21",
-                      token: "5ed0ca208d00251334254797",
+                      key: "your key",
+                      token: "your token",
                       products: [
                         "auth",
                         "balance",
