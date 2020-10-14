@@ -20,6 +20,28 @@ class Helper {
     return identifier;
   }
 
+  static Future<AndroidDeviceInfo> getAndroidInfo() async {
+    final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+    try {
+      if (Platform.isAndroid) {
+        return await deviceInfoPlugin.androidInfo;
+      }
+    } catch (ex) {
+      return null;
+    }
+  }
+
+  static Future<IosDeviceInfo> getIosInfo() async {
+    final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+    try {
+      if (Platform.isIOS) {
+        return await deviceInfoPlugin.iosInfo;
+      }
+    } catch (ex) {
+      return null;
+    }
+  }
+
   static Future<String> getDeviceIMEI() async {
     String identifier = "";
     final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();

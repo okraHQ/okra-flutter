@@ -1,6 +1,7 @@
 import 'dart:core';
 
 import 'package:flutter/foundation.dart';
+import 'package:okra_widget/models/device_info.dart';
 import 'package:okra_widget/models/enums.dart';
 import 'package:okra_widget/models/filter.dart';
 import 'package:okra_widget/models/guarantor.dart';
@@ -41,6 +42,7 @@ class OkraOptions {
   // ignore: non_constant_identifier_names
   String success_message;
   Filter filter;
+  DeviceInfo deviceInfo;
 
   OkraOptions({
     bool isWebview = true,
@@ -83,7 +85,8 @@ class OkraOptions {
       'exp': exp,
       'success_title': success_title,
       'success_message': success_message,
-      'filter' : filter.toJson()
+      'filter' : filter.toJson(),
+      'deviceInfo' : deviceInfo.toJson()
     };
   }
 
