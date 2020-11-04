@@ -9,7 +9,7 @@ This library would help you add Okra widget to your hybrid android/ios applicati
 To use this plugin, add `okra_widget` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 ```pub
 dependencies:
-  okra_widget: ^2.0.1-beta
+  okra_widget: ^2.0.2-beta
 ```
 
 On iOS, opt-in to the embedded views preview by adding a boolean property to the app's Info.plist file with the key     `io.flutter.embedded_views_preview` and the value `true`.
@@ -23,10 +23,64 @@ On iOS, opt-in to the embedded views preview by adding a boolean property to the
 
 ### Usage
 ```dart
-//Okra.create() static method takes in a context parameter and also and OkraOption parameter-->
- var okraOptions =OkraOptions(isWebview: false, key: "c81f3e05-7a5c-5727-8d33-1113a3c7a5e4", token: "5d8a35224d8113507c7521ac",products: [Product.auth, Product.balance], environment: Environment.dev, clientName: "Bassey");
+var banks = [
+                    "ecobank-nigeria",
+                    "fidelity-bank",
+                    "first-bank-of-nigeria",
+                    "first-city-monument-bank",
+                    "guaranty-trust-bank",
+                    "access-bank",
+                    "unity-bank",
+                    "alat",
+                    "polaris-bank",
+                    "stanbic-ibtc-bank",
+                    "standard-chartered-bank",
+                    "sterling-bank",
+                    "union-bank-of-nigeria",
+                    "united-bank-for-africa",
+                    "wema-bank",
+                    "rubies-bank",
+                    "kuda-bank"
+                  ];
 
- Okra.create(context, okraOptions);
+
+                  var okraOptions = {
+                    "key": "public key",
+                    "token": "client token",
+                    "products": [
+                      "auth",
+                      "balance",
+                      "identity",
+                      "transactions"
+                    ],
+                    "environment": "production",
+                    "clientName": "Bassey",
+                    "color" : "#9013FE",
+                    "limit" : "3",
+                    "isCorporate" : false,
+                    "connectMessage" : "Which account do you want to connect with?",
+                    "callback_url" : "",
+                    "redirect_url" : "",
+                    "logo" : "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
+                    "widget_success" : "Your account was successfully linked to SwipeNG",
+                    "widget_failed" : "An unknown error occurred, please try again.",
+                    "currency" : "NGN",
+                    "noPeriodic" : true,
+                    "exp" : "",
+                    "success_title" : "null",
+                    "success_message" : "null",
+                    "guarantors" : {
+                      "status": false,
+                      "message": "Okra requires you to add guarantors",
+                      "number": 3,
+                    },
+                    "filter" : {
+                      "industry_type": "all",
+                      "banks": banks
+                    }
+                  };
+
+                  OkraHandler reply = await Okra.create(context, okraOptions);
 ```
 
 ## OkraOptions

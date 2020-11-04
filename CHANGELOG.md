@@ -1,3 +1,7 @@
+2.0.2-beta
+  - Uses maps as the okra options property - this allows users put as much custom fields as possible
+  - Reduced library size
+  
 2.0.1-beta
   - Takes list of products as a string
 
