@@ -1,3 +1,8 @@
+2.0.3-beta
+  - updated the webview to 2.0.2
+  - Removed Imei lib
+  - Change base url
+
 2.0.2-beta
   - Uses maps as the okra options property - this allows users put as much custom fields as possible
   - Reduced library size

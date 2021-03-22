@@ -1,6 +1,6 @@
 name: okra_widget
 description: Okra widget wrapper SDK, used to implement Okra widgets for both IOS and Android applications written in flutter.
-version: 2.0.2-beta
+version: 2.0.3-beta
 homepage: https://github.com/okraHQ/okra-flutter
 
 environment:
@@ -9,9 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  webview_flutter: ^0.3.22
+  webview_flutter: ^2.0.2
   device_info: ^1.0.0
-  imei_plugin: ^1.1.6
+
 
 dev_dependencies:
   flutter_test:
