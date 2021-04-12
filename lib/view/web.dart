@@ -4,11 +4,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:okra_widget/models/okra_handler.dart';
-import 'package:okra_widget/utils/okra_options.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class Web extends StatefulWidget {
-  final OkraOptions okraOptions;
+  final Map<String, dynamic> okraOptions;
 
   const Web({Key key, this.okraOptions})
       : assert(okraOptions != null),
@@ -27,10 +26,10 @@ class _WebState extends State<Web> {
   Widget build(BuildContext context) {
     return Stack(children: [
       WebView(
-          initialUrl: "https://mobile.okra.ng",
+          initialUrl: "https://mobile.okra.ng/",
           onPageFinished: (response) {
             setState(() {isLoading = false;});
-            String jsonOptions = jsonEncode(widget.okraOptions.toJson());
+            String jsonOptions = json.encode(widget.okraOptions);
             _controller.evaluateJavascript("openOkraWidget('$jsonOptions')");
           },
           javascriptMode: JavascriptMode.unrestricted,

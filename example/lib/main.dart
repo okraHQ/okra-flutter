@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:okra_widget/okra_widget.dart';
 
@@ -68,37 +70,44 @@ class _MyHomePageState extends State<MyHomePage> {
                     "kuda-bank"
                   ];
 
-                  OkraOptions options = OkraOptions(
-                      isWebview: true,
-                      key: "a82d548a-54a1-5092-8f9a-413c0333cb21",
-                      token: "5ed0ca208d00251334254797",
-                      products: [
-                        Product.auth,
-                        Product.balance,
-                        Product.identity,
-                        Product.transactions
-                      ],
-                      environment: "production",
-                      clientName: "Bassey");
-                  options.color = "#9013FE";
-                  options.limit = "3";
-                  options.isCorporate = false;
-                  options.connectMessage = "Which account do you want to connect with?";
-                  options.callback_url = "";
-                  options.redirect_url = "";
-                  options.logo = "https://dash.okra.ng/static/media/okra-logo.514fd943.png'";
-                  options.widget_success = "Your account was successfully linked to Okra";
-                  options.widget_failed = "An unknown error occurred, please try again.";
-                  options.currency = "NGN";
-                  options.noPeriodic = true;
-                  options.exp = "";
-                  options.success_title = "null";
-                  options.success_message = "null";
-                  options.guarantors = new Guarantor(false,"""Okra requires you to add guarantors""",1);
-                  options.filter = Filter("all", banks);
-                  OkraHandler reply = await Okra.create(context, options);
-                  print("-----------------------------------------------");
-                  print(reply.data);
+
+                  var okraOptions = {
+                    "key": "z",
+                    "token": "5da6358130a943486f33dced",
+                    "products": [
+                      "auth",
+                      "balance",
+                      "identity",
+                      "transactions"
+                    ],
+                    "environment": "production",
+                    "clientName": "Bassey",
+                    "color" : "#9013FE",
+                    "limit" : "3",
+                    "isCorporate" : false,
+                    "connectMessage" : "Which account do you want to connect with?",
+                    "callback_url" : "",
+                    "redirect_url" : "",
+                    "logo" : "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
+                    "widget_success" : "Your account was successfully linked to SwipeNG",
+                    "widget_failed" : "An unknown error occurred, please try again.",
+                    "currency" : "NGN",
+                    "noPeriodic" : true,
+                    "exp" : "",
+                    "success_title" : "null",
+                    "success_message" : "null",
+                    "guarantors" : {
+                      "status": false,
+                      "message": "Okra requires you to add guarantors",
+                      "number": 3,
+                    },
+                    "filter" : {
+                      "industry_type": "all",
+                      "banks": banks
+                    }
+                  };
+
+                  OkraHandler reply = await Okra.create(context, okraOptions);
                 }),
           ],
         ),

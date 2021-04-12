@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:device_info/device_info.dart';
-import 'package:imei_plugin/imei_plugin.dart';
+
 
 class Helper {
   static Future<String> getDeviceUUID() async {
@@ -20,18 +20,27 @@ class Helper {
     return identifier;
   }
 
-  static Future<String> getDeviceIMEI() async {
-    String identifier = "";
+  static Future<AndroidDeviceInfo> getAndroidInfo() async {
     final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
     try {
       if (Platform.isAndroid) {
-        identifier = await ImeiPlugin.getImei();
-        print("this is the IMEI for android $identifier");
-      } else if (Platform.isIOS) {
-        var data = await deviceInfoPlugin.iosInfo;
-        identifier = data.identifierForVendor; //UUID for iOS
+        return await deviceInfoPlugin.androidInfo;
       }
-    } catch (ex) {}
-    return identifier;
+    } catch (ex) {
+      return null;
+    }
   }
+
+  static Future<IosDeviceInfo> getIosInfo() async {
+    final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+    try {
+      if (Platform.isIOS) {
+        return await deviceInfoPlugin.iosInfo;
+      }
+    } catch (ex) {
+      return null;
+    }
+  }
+
+
 }

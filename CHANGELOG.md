@@ -1,3 +1,18 @@
+2.0.3-beta
+  - updated the webview to 2.0.2
+  - Removed Imei lib
+  - Change base url
+
+2.0.2-beta
+  - Uses maps as the okra options property - this allows users put as much custom fields as possible
+  - Reduced library size
+  
+2.0.1-beta
+  - Takes list of products as a string
+
+2.0.0-beta
+  - Uses the new Okra widget
+
 0.0.5
   - updated the webview to 0.3.22
   - Added onTap and Vertical Scroll Gesture detectors
