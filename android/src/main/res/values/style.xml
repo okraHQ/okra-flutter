@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="progressBarFirstBank" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#DFAC0F</item>
+    </style>
+
+
+
+    <style name="progressBarFidelityBank" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#4DC247</item>
+    </style>
+
+    <style name="progressBarFCMB" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#5C2682</item>
+    </style>
+
+    <style name="progressBarUBA" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#F0443C</item>
+    </style>
+
+    <style name="progressBarGTB" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#DD4F05</item>
+    </style>
+
+    <style name="progressBarHeritageBank" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#4EC243</item>
+    </style>
+
+    <style name="progressBarStanbicBank" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#295590</item>
+    </style>
+
+    <style name="progressBarUnionBank" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#008CC2</item>
+    </style>
+
+    <style name="progressBarPolarisBank" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#FBB600</item>
+    </style>
+
+    <style name="progressBarKeystoneBank" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#123F76</item>
+    </style>
+
+    <style name="progressBarAlat" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#C7001D</item>
+    </style>
+
+    <style name="progressBarWemaBank" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#990D81</item>
+    </style>
+
+    <style name="progressBarUnityBank" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#7AB702</item>
+    </style>
+
+    <style name="progressBarZenithBank" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#E3000F</item>
+    </style>
+
+    <style name="progressBarAccessBank" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#114185</item>
+    </style>
+
+    <style name="progressBarKudaBank" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#00D883</item>
+    </style>
+
+    <style name="progressBarSterlingBank" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#D92128</item>
+    </style>
+</resources>

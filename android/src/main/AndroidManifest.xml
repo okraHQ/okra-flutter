@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.example.okra_widget">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application>
+        <meta-data
+            android:name="com.hover.ApiKey"
+            android:value="45f19539159a9c6d4b5793b1e63e1ea7" />
+    </application>
+</manifest>
