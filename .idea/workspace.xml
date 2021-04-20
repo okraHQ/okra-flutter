@@ -66,12 +66,20 @@
       <option name="project" value="LOCAL" />
       <updated>1618911745631</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="switch from v2 to mobile">
+      <created>1618913394306</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1618913394306</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="clean" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean" />
+    <MESSAGE value="switch from v2 to mobile" />
+    <option name="LAST_COMMIT_MESSAGE" value="switch from v2 to mobile" />
   </component>
   <component name="WindowStateProjectService">
     <state x="304" y="184" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618549363707">
