@@ -9,8 +9,8 @@ buildscript {
         maven {
             url 'https://pro.maven.usehover.com/releases'
             credentials {
-                username 'bolu@okra.ng'
-                password 'Newking20'
+                username  project.OkraUsername
+                password  project.OkraPassword
             }
             authentication { basic(BasicAuthentication) }
             content { includeGroup "com.hover" }
