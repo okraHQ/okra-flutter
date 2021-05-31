@@ -49,6 +49,7 @@ class OkraWidgetPlugin: FlutterPlugin, MethodCallHandler,ActivityAware,ActivityR
 
   }
 
+
   override fun onAttachedToActivity(binding: ActivityPluginBinding) {
     activity = binding.activity;
     binding.addActivityResultListener(this)
@@ -175,13 +176,12 @@ class OkraWidgetPlugin: FlutterPlugin, MethodCallHandler,ActivityAware,ActivityR
   override fun onActivityResult(
           requestCode: Int,
           resultCode: Int,
-          data: Intent
+          data: Intent?
   ): Boolean {
     // React to activity result and if request code == ResultActivity.REQUEST_CODE
-    println("ON ACTIVITY RESULT CALLED --- $data")
     return when (resultCode) {
       Activity.RESULT_OK -> {
-        generalmapOkraOptions?.let { ussdActionDeterminer?.onUSDDResultReceived(data, it) }
+        generalmapOkraOptions?.let { data?.let { intent -> ussdActionDeterminer?.onUSDDResultReceived(intent, it) } }
         true
       }
       else -> false
