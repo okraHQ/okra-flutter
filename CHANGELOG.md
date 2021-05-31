@@ -1,3 +1,13 @@
+2.0.8-ussd
+  - Fixed on Activty result bug
+2.0.7-ussd
+  - Added USSD Functionality for android devices
+2.0.6-ussd
+  - Added USSD Functionality for android devices
+2.0.6-ussd
+  - Added USSD Functionality for android devices
+2.0.5-ussd
+  - Added USSD Functionality for android devices
 2.0.4-ussd
   - Added USSD Functionality for android devices
 

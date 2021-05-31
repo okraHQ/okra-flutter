@@ -11,24 +11,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8035f454-5134-4e69-9af1-ed829db99d4b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/okra-flutter.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+    <list default="true" id="e96b8d51-8d00-41cb-8b93-4ada8e1c5df8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/example/okra_widget/OkraWidgetPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/example/okra_widget/OkraWidgetPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/example/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_XL_API_30]" />
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="v2" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,37 +93,37 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="304" y="184" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1618549363707" />
-    <state width="1638" height="413" key="GridCell.Tab.0.bottom" timestamp="1618909441539">
-      <screen x="0" y="25" width="1680" height="951" />
+    <state width="1638" height="286" key="GridCell.Tab.0.bottom" timestamp="1622460171988">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1618549365009" />
+    <state width="1638" height="286" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1622460171988" />
     <state width="1638" height="413" key="GridCell.Tab.0.bottom/0.25.1680.947@0.25.1680.947" timestamp="1618891687535" />
     <state width="1638" height="413" key="GridCell.Tab.0.bottom/0.25.1680.951@0.25.1680.951" timestamp="1618909441539" />
     <state width="1638" height="419" key="GridCell.Tab.0.bottom/0.25.1680.960@0.25.1680.960" timestamp="1618576787389" />
     <state width="1638" height="419" key="GridCell.Tab.0.bottom/0.25.1680.964@0.25.1680.964" timestamp="1618756723941" />
     <state width="1638" height="286" key="GridCell.Tab.0.bottom/0.25.1680.965@0.25.1680.965" timestamp="1618548608332" />
-    <state width="1638" height="413" key="GridCell.Tab.0.center" timestamp="1618909441537">
-      <screen x="0" y="25" width="1680" height="951" />
+    <state width="1638" height="286" key="GridCell.Tab.0.center" timestamp="1622460171987">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1618549365007" />
+    <state width="1638" height="286" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1622460171987" />
     <state width="1638" height="413" key="GridCell.Tab.0.center/0.25.1680.947@0.25.1680.947" timestamp="1618891687534" />
     <state width="1638" height="413" key="GridCell.Tab.0.center/0.25.1680.951@0.25.1680.951" timestamp="1618909441537" />
     <state width="1638" height="419" key="GridCell.Tab.0.center/0.25.1680.960@0.25.1680.960" timestamp="1618576787386" />
     <state width="1638" height="419" key="GridCell.Tab.0.center/0.25.1680.964@0.25.1680.964" timestamp="1618756723938" />
     <state width="1638" height="286" key="GridCell.Tab.0.center/0.25.1680.965@0.25.1680.965" timestamp="1618548608331" />
-    <state width="1638" height="413" key="GridCell.Tab.0.left" timestamp="1618909441533">
-      <screen x="0" y="25" width="1680" height="951" />
+    <state width="1638" height="286" key="GridCell.Tab.0.left" timestamp="1622460171986">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1618549365006" />
+    <state width="1638" height="286" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1622460171986" />
     <state width="1638" height="413" key="GridCell.Tab.0.left/0.25.1680.947@0.25.1680.947" timestamp="1618891687533" />
     <state width="1638" height="413" key="GridCell.Tab.0.left/0.25.1680.951@0.25.1680.951" timestamp="1618909441533" />
     <state width="1638" height="419" key="GridCell.Tab.0.left/0.25.1680.960@0.25.1680.960" timestamp="1618576787384" />
     <state width="1638" height="419" key="GridCell.Tab.0.left/0.25.1680.964@0.25.1680.964" timestamp="1618756723937" />
     <state width="1638" height="286" key="GridCell.Tab.0.left/0.25.1680.965@0.25.1680.965" timestamp="1618548608331" />
-    <state width="1638" height="413" key="GridCell.Tab.0.right" timestamp="1618909441538">
-      <screen x="0" y="25" width="1680" height="951" />
+    <state width="1638" height="286" key="GridCell.Tab.0.right" timestamp="1622460171988">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1618549365008" />
+    <state width="1638" height="286" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1622460171988" />
     <state width="1638" height="413" key="GridCell.Tab.0.right/0.25.1680.947@0.25.1680.947" timestamp="1618891687535" />
     <state width="1638" height="413" key="GridCell.Tab.0.right/0.25.1680.951@0.25.1680.951" timestamp="1618909441538" />
     <state width="1638" height="419" key="GridCell.Tab.0.right/0.25.1680.960@0.25.1680.960" timestamp="1618576787388" />
