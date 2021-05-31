@@ -33,31 +33,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  String _platformVersion = 'Unknown';
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      platformVersion = await OkraWidget.testFunction;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
-  }
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
   }
 
   @override
@@ -72,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Click button to open Okra Widget running on $_platformVersion\n'),
+            Text('Click button to open Okra Widget'),
             RaisedButton(
                 color: Colors.green,
                 child: Text(
@@ -102,8 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
                   var okraOptions = {
-                    "key": "4975d560-9979-518e-b552-f33876e3f658",
-                    "token": "5da6358130a943486f33dced",
+                    "key": "key",
+                    "token": "token",
                     "products": [
                       "auth",
                       "balance",
