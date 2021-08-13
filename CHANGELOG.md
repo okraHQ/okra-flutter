@@ -1,3 +1,20 @@
+3.0.0-beta
+  - New Widget
+2.0.9
+  - Change base url
+2.0.8-ussd
+  - Fixed on Activty result bug
+2.0.7-ussd
+  - Added USSD Functionality for android devices
+2.0.6-ussd
+  - Added USSD Functionality for android devices
+2.0.6-ussd
+  - Added USSD Functionality for android devices
+2.0.5-ussd
+  - Added USSD Functionality for android devices
+2.0.4-ussd
+  - Added USSD Functionality for android devices
+
 2.0.3-beta
   - updated the webview to 2.0.2
   - Removed Imei lib
@@ -6,7 +23,7 @@
 2.0.2-beta
   - Uses maps as the okra options property - this allows users put as much custom fields as possible
   - Reduced library size
-  
+
 2.0.1-beta
   - Takes list of products as a string
 
@@ -16,7 +33,7 @@
 0.0.5
   - updated the webview to 0.3.22
   - Added onTap and Vertical Scroll Gesture detectors
-  
+
 0.0.4
   - Handled onSuccess and onError response.
   - Added loader to indicate when page is loading.

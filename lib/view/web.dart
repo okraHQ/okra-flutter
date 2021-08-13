@@ -26,7 +26,7 @@ class _WebState extends State<Web> {
   Widget build(BuildContext context) {
     return Stack(children: [
       WebView(
-          initialUrl: "https://mobile.okra.ng/",
+          initialUrl: "https://v3-mobile.okra.ng/mobile.html",
           onPageFinished: (response) {
             setState(() {isLoading = false;});
             String jsonOptions = json.encode(widget.okraOptions);
