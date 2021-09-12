@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:okra_widget/okra_widget.dart';
 
@@ -29,7 +27,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,41 +67,36 @@ class _MyHomePageState extends State<MyHomePage> {
                     "kuda-bank"
                   ];
 
-
                   var okraOptions = {
                     "key": "z",
                     "token": "5da6358130a943486f33dced",
-                    "products": [
-                      "auth",
-                      "balance",
-                      "identity",
-                      "transactions"
-                    ],
+                    "products": ["auth", "balance", "identity", "transactions"],
                     "environment": "production",
                     "clientName": "Bassey",
-                    "color" : "#9013FE",
-                    "limit" : "3",
-                    "isCorporate" : false,
-                    "connectMessage" : "Which account do you want to connect with?",
-                    "callback_url" : "",
-                    "redirect_url" : "",
-                    "logo" : "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
-                    "widget_success" : "Your account was successfully linked to SwipeNG",
-                    "widget_failed" : "An unknown error occurred, please try again.",
-                    "currency" : "NGN",
-                    "noPeriodic" : true,
-                    "exp" : "",
-                    "success_title" : "null",
-                    "success_message" : "null",
-                    "guarantors" : {
+                    "color": "#9013FE",
+                    "limit": "3",
+                    "isCorporate": false,
+                    "connectMessage":
+                        "Which account do you want to connect with?",
+                    "callback_url": "",
+                    "redirect_url": "",
+                    "logo":
+                        "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
+                    "widget_success":
+                        "Your account was successfully linked to SwipeNG",
+                    "widget_failed":
+                        "An unknown error occurred, please try again.",
+                    "currency": "NGN",
+                    "noPeriodic": true,
+                    "exp": "",
+                    "success_title": "null",
+                    "success_message": "null",
+                    "guarantors": {
                       "status": false,
                       "message": "Okra requires you to add guarantors",
                       "number": 3,
                     },
-                    "filter" : {
-                      "industry_type": "all",
-                      "banks": banks
-                    }
+                    "filter": {"industry_type": "all", "banks": banks}
                   };
 
                   OkraHandler reply = await Okra.create(context, okraOptions);

@@ -9,8 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  webview_flutter: ^2.0.2
-  device_info: ^1.0.0
+  webview_flutter: ^2.0.13
+  device_info: ^2.0.2
 
 
 dev_dependencies:
