@@ -19,7 +19,7 @@ class Helper {
     return identifier;
   }
 
-  static Future<AndroidDeviceInfo> getAndroidInfo() async {
+  static Future<AndroidDeviceInfo?> getAndroidInfo() async {
     final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
     try {
       if (Platform.isAndroid) {
@@ -32,7 +32,7 @@ class Helper {
     }
   }
 
-  static Future<IosDeviceInfo> getIosInfo() async {
+  static Future<IosDeviceInfo?> getIosInfo() async {
     final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
     try {
       if (Platform.isIOS) {

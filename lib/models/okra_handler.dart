@@ -1,11 +1,11 @@
 import 'dart:core';
 
 class OkraHandler {
-  String data;
-  bool isSuccessful;
-  bool hasError;
-  bool isDone;
-  bool onClose;
+  String? data;
+  bool? isSuccessful;
+  bool? hasError;
+  bool? isDone;
+  bool? onClose;
 
   OkraHandler(bool isDone, bool isSuccessful, bool hasError, bool onClose, String data){
     this.isDone = isDone;
