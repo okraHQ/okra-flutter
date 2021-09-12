@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:device_info/device_info.dart';
 
-
 class Helper {
   static Future<String> getDeviceUUID() async {
     String identifier = "";
@@ -20,27 +19,29 @@ class Helper {
     return identifier;
   }
 
-  static Future<AndroidDeviceInfo> getAndroidInfo() async {
+  static Future<AndroidDeviceInfo?> getAndroidInfo() async {
     final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
     try {
       if (Platform.isAndroid) {
         return await deviceInfoPlugin.androidInfo;
+      } else {
+        return null;
       }
     } catch (ex) {
       return null;
     }
   }
 
-  static Future<IosDeviceInfo> getIosInfo() async {
+  static Future<IosDeviceInfo?> getIosInfo() async {
     final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
     try {
       if (Platform.isIOS) {
         return await deviceInfoPlugin.iosInfo;
+      } else {
+        return null;
       }
     } catch (ex) {
       return null;
     }
   }
-
-
 }
