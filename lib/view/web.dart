@@ -9,7 +9,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 class Web extends StatefulWidget {
   final Map<String, dynamic> okraOptions;
 
-  const Web({Key key, this.okraOptions})
+  const Web({Key? key, required this.okraOptions})
       : assert(okraOptions != null),
         super(key: key);
 
@@ -18,7 +18,7 @@ class Web extends StatefulWidget {
 }
 
 class _WebState extends State<Web> {
-  WebViewController _controller;
+  late WebViewController _controller;
   bool isLoading = true;
   OkraHandler okraHandler = new OkraHandler(false, false, false, true, "");
 
