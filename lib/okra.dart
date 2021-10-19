@@ -7,11 +7,11 @@ import'dart:io' show Platform;
 import 'view/web.dart';
 
 class Okra {
-  static Future<OkraHandler> create(
+  static Future<OkraHandler?> create(
     BuildContext context, Map<String, dynamic> okraOptions) async {
 
-    AndroidDeviceInfo androidDeviceInfo;
-    IosDeviceInfo iosDeviceInfo;
+    AndroidDeviceInfo? androidDeviceInfo;
+    IosDeviceInfo? iosDeviceInfo;
 
     if(Platform.isAndroid) {
        androidDeviceInfo = await Helper.getAndroidInfo();
@@ -19,9 +19,9 @@ class Okra {
        iosDeviceInfo = await Helper.getIosInfo();
     }
 
-    okraOptions["uuid"] =  Platform.isAndroid ? androidDeviceInfo.androidId : iosDeviceInfo.identifierForVendor;
-    String deviceName = Platform.isAndroid ? androidDeviceInfo.brand : iosDeviceInfo.name;
-    String deviceModel = Platform.isAndroid ? androidDeviceInfo.model : iosDeviceInfo.model;
+    okraOptions["uuid"] =  Platform.isAndroid ? androidDeviceInfo!.androidId : iosDeviceInfo!.identifierForVendor;
+    String deviceName = Platform.isAndroid ? androidDeviceInfo!.brand : iosDeviceInfo!.name;
+    String deviceModel = Platform.isAndroid ? androidDeviceInfo!.model : iosDeviceInfo!.model;
     okraOptions["deviceInfo"] = {
        "deviceName" : deviceName,
        "deviceModel" : deviceModel,
