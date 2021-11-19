@@ -107,7 +107,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     }
                   };
 
-                  OkraHandler reply = await Okra.create(context, okraOptions);
+                  // OkraHandler reply = await Okra.create(context, okraOptions);
+                  // reply.
+                  Okra.buildWithOptions(
+                      context,
+                      key: "key",
+                      token: "token",
+                      products: ["products",] ,
+                      environment: "environment",
+                      clientName: "clientName",
+                      onSuccess: (data) {
+
+                      }
+                  );
                 }),
           ],
         ),

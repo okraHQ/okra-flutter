@@ -14,4 +14,6 @@ class OkraHandler {
     this.onClose = onClose;
     this.data = data;
   }
+
+   String get successData => this.data;
 }
