@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:okra_widget/okra_widget.dart';
+import 'package:okra_widget_official/okra_widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Okra Link Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -72,8 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
                   var okraOptions = {
-                    "key": "z",
-                    "token": "5da6358130a943486f33dced",
+                    "key": "03e94436-d4df-5b42-8624-19e21eb14c5b",
+                    "token": "5e5bb362bd83ab0826527d30",
                     "products": [
                       "auth",
                       "balance",

@@ -1,7 +1,7 @@
 import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:okra_widget/utils/helper.dart';
+import 'package:okra_widget_official/utils/helper.dart';
 import 'models/okra_handler.dart';
 import'dart:io' show Platform;
 import 'view/web.dart';

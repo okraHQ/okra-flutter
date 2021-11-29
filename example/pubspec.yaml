@@ -20,7 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  okra_widget:
+  okra_widget_official:
       path: ../
 
   # The following adds the Cupertino Icons font to your application.
