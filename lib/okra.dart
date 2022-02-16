@@ -47,14 +47,16 @@ class Okra {
   Okra._();
   static Future<void> buildWithOptions(
       BuildContext context, {
-        @required String key,
-        @required String token,
-        @required List<String> products,
-        @required String environment,
-        @required String clientName,
-        Color color,
+        String key,
+        String token,
+        String app_id,
+        List<String> products,
+        String environment,
+        String clientName,
+        String color,
         String limit,
         bool isCorporate,
+        bool payment,
         String connectMessage,
         String callback_url,
         String redirect_url,
@@ -66,10 +68,16 @@ class Okra {
         String exp,
         String success_title,
         String success_message,
+        String chargeType,
+        int chargeAmount,
+        String chargeNote,
+        String chargeCurrency,
         Map<String, Object> guarantors,
         Map<String, Object> filters,
-        @required Function(String data) onSuccess,
-        @required Function(String message) onError,
+        Function(String data) onSuccess,
+        Function(String message) onError,
+        Function(String message) onClose,
+        Function(String message) beforeClose,
       }) async {
 
     AndroidDeviceInfo androidDeviceInfo;
@@ -85,15 +93,17 @@ class Okra {
     okraOptions["key"] = key;
     okraOptions["token"] = token;
     okraOptions["products"] = products;
+    okraOptions["app_id"] = app_id;
     okraOptions["environment"] = environment;
     okraOptions["clientName"] = clientName;
-    okraOptions["color"] = color;
+    okraOptions["color"] = color ?? "#3AB795";
     okraOptions["limit"] = limit;
     okraOptions["isCorporate"] = isCorporate;
+    okraOptions["payment"] = payment;
     okraOptions["connectMessage"] = connectMessage;
     okraOptions["callback_url"] = callback_url;
     okraOptions["redirect_url"] = redirect_url;
-    okraOptions["logo"] = logo;
+    okraOptions["logo"] = logo ?? "https://media-exp1.licdn.com/dms/image/C4D0BAQHC76UBZ4sKVQ/company-logo_200_200/0/1573671434447?e=1644451200&v=beta&t=roLpHuqKsAsFGpfP39Ne5bqWKOWsBc0pB3Una1fK0WU";
     okraOptions["widget_success"] = widget_success;
     okraOptions["widget_failed"] = widget_failed;
     okraOptions["currency"] = currency;
@@ -101,6 +111,12 @@ class Okra {
     okraOptions["exp"] = exp;
     okraOptions["success_title"] = success_title;
     okraOptions["success_message"] = success_message;
+    okraOptions["charge"] = {
+      "type": chargeType,
+      "amount": chargeAmount,
+      "note":  chargeNote ,
+      "currency": chargeCurrency
+    };
 
     okraOptions["uuid"] =  Platform.isAndroid ? androidDeviceInfo.androidId : iosDeviceInfo.identifierForVendor;
     String deviceName = Platform.isAndroid ? androidDeviceInfo.brand : iosDeviceInfo.name;
@@ -115,18 +131,44 @@ class Okra {
 
     okraOptions["source"] = "flutter";
     okraOptions["isWebview"] = true;
+    print(products.toString());
 
-    OkraHandler res = await Navigator.push(
+    await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (BuildContext context) => Web(okraOptions: okraOptions),
+        builder: (BuildContext context) => Web(
+          okraOptions: okraOptions,
+          useShort: false,
+          onClose: onClose,
+          onError: onError,
+          onSuccess: onSuccess,
+        ),
       ),
     );
 
-    if (res.isSuccessful) {
-      onSuccess(res.data);
-    } else {
-      onError(res.data);
-    }
+  }
+
+  static Future<void> buildWithShortUrl(
+      BuildContext context, {
+        String shortUrl,
+        Function(String data) onSuccess,
+        Function(String message) onError,
+        Function(String message) onClose,
+        Function(String message) beforeClose,
+      }) async {
+
+
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => Web(
+          shortUrl: shortUrl,
+          useShort: true,
+          onClose: onClose,
+          onError: onError,
+          onSuccess: onSuccess,
+        ),
+      ),
+    );
   }
 }

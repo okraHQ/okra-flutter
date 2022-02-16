@@ -6,12 +6,14 @@ class OkraHandler {
   bool hasError;
   bool isDone;
   bool onClose;
+  bool beforeClose;
 
-  OkraHandler(bool isDone, bool isSuccessful, bool hasError, bool onClose, String data){
+  OkraHandler(bool isDone, bool isSuccessful, bool hasError, bool onClose, bool beforeClose, String data){
     this.isDone = isDone;
     this.isSuccessful = isSuccessful;
     this.hasError = hasError;
     this.onClose = onClose;
+    this.beforeClose = beforeClose;
     this.data = data;
   }
 

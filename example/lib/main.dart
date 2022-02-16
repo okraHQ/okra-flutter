@@ -108,18 +108,53 @@ class _MyHomePageState extends State<MyHomePage> {
                   };
 
                   // OkraHandler reply = await Okra.create(context, okraOptions);
-                  // reply.
+                  // reply
                   Okra.buildWithOptions(
                       context,
-                      key: "key",
-                      token: "token",
-                      products: ["products",] ,
-                      environment: "environment",
+                      key: "7d9d39f0-23a0-5b93-8603-6c03fb0e02c5",
+                      token: "5da6358130a943486f33dced",
+                      color: "#3AB795",
+                      products: [
+                        "auth",
+                        "balance",
+                        "identity",
+                        // "transactions"
+                      ] ,
+                      // chargeAmount: 1000,
+                      // chargeNote: "testing",
+                      // chargeType: "one-time",
+                      // chargeCurrency: "NGN",
+                      environment: "production",
                       clientName: "clientName",
                       onSuccess: (data) {
-
+                        print("Success");
+                        print(data);
+                      },
+                      onError: ( message) {
+                        print("error");
+                        print(message);
+                      },
+                      onClose: (message) {
+                        print("close");
+                        print(message);
                       }
                   );
+                  // Okra.buildWithShortUrl(
+                  //     context,
+                  //     shortUrl: "7IF1Kwn8v",
+                  //     onSuccess: (data) {
+                  //       print("Success");
+                  //       print(data);
+                  //     },
+                  //     onError: ( message) {
+                  //       print("error");
+                  //       print(message);
+                  //     },
+                  //     onClose: (message) {
+                  //       print("close");
+                  //       print(message);
+                  //     }
+                  // );
                 }),
           ],
         ),
