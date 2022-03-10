@@ -1,6 +1,7 @@
 import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:okra_widget/raw/okra_html.dart';
 import 'package:okra_widget/utils/helper.dart';
 import 'models/okra_handler.dart';
 import'dart:io' show Platform;
@@ -47,14 +48,14 @@ class Okra {
   Okra._();
   static Future<void> buildWithOptions(
       BuildContext context, {
-        String key,
-        String token,
+        @required String key,
+        @required String token,
         String app_id,
         List<String> products,
         String environment,
         String clientName,
         String color,
-        String limit,
+        int limit,
         bool isCorporate,
         bool payment,
         String connectMessage,
@@ -92,46 +93,53 @@ class Okra {
     Map<String, dynamic> okraOptions = new Map();
     okraOptions["key"] = key;
     okraOptions["token"] = token;
-    okraOptions["products"] = products;
     okraOptions["app_id"] = app_id;
-    okraOptions["environment"] = environment;
-    okraOptions["clientName"] = clientName;
+    okraOptions["env"] = environment;
+    okraOptions["clientName"] = clientName ?? "";
     okraOptions["color"] = color ?? "#3AB795";
-    okraOptions["limit"] = limit;
-    okraOptions["isCorporate"] = isCorporate;
-    okraOptions["payment"] = payment;
+    okraOptions["limit"] = limit ?? 24;
+    okraOptions["isCorporate"] = isCorporate ?? false;
+    okraOptions["payment"] = payment ?? false;
     okraOptions["connectMessage"] = connectMessage;
-    okraOptions["callback_url"] = callback_url;
-    okraOptions["redirect_url"] = redirect_url;
-    okraOptions["logo"] = logo ?? "https://media-exp1.licdn.com/dms/image/C4D0BAQHC76UBZ4sKVQ/company-logo_200_200/0/1573671434447?e=1644451200&v=beta&t=roLpHuqKsAsFGpfP39Ne5bqWKOWsBc0pB3Una1fK0WU";
-    okraOptions["widget_success"] = widget_success;
-    okraOptions["widget_failed"] = widget_failed;
-    okraOptions["currency"] = currency;
-    okraOptions["noPeriodic"] = noPeriodic;
-    okraOptions["exp"] = exp;
-    okraOptions["success_title"] = success_title;
-    okraOptions["success_message"] = success_message;
+    okraOptions["callback_url"] = callback_url ?? "";
+    okraOptions["redirect_url"] = redirect_url ?? "";
+    okraOptions["logo"] = logo ?? "";
+    okraOptions["widget_success"] = widget_success ?? "";
+    okraOptions["widget_failed"] = widget_failed ?? "";
+    okraOptions["currency"] = currency ?? "NGN";
+    okraOptions["noPeriodic"] = noPeriodic ?? false;
+    okraOptions["exp"] = exp ?? "";
+    okraOptions["success_title"] = success_title ?? "";
+    okraOptions["success_message"] = success_message ?? "";
     okraOptions["charge"] = {
-      "type": chargeType,
-      "amount": chargeAmount,
-      "note":  chargeNote ,
-      "currency": chargeCurrency
+      "type": chargeType ?? "",
+      "amount": chargeAmount ?? "",
+      "note":  chargeNote ?? "",
+      "currency": chargeCurrency ?? ""
     };
 
     okraOptions["uuid"] =  Platform.isAndroid ? androidDeviceInfo.androidId : iosDeviceInfo.identifierForVendor;
     String deviceName = Platform.isAndroid ? androidDeviceInfo.brand : iosDeviceInfo.name;
     String deviceModel = Platform.isAndroid ? androidDeviceInfo.model : iosDeviceInfo.model;
-    okraOptions["deviceInfo"] = {
-      "deviceName" : deviceName,
-      "deviceModel" : deviceModel,
-      "longitude" : 0,
-      "latitude" :  0,
-      "platform" : Platform.isAndroid ? "android" : "ios"
-    };
+    okraOptions["deviceInfo"] = "";
+    // okraOptions["deviceInfo"] = {
+    //   "deviceName" : deviceName,
+    //   "deviceModel" : deviceModel,
+    //   "longitude" : 0,
+    //   "latitude" :  0,
+    //   "platform" : Platform.isAndroid ? "android" : "ios"
+    // };
+
+    for (String p in products) {
+      int i = products.indexOf(p);
+      products[i] =  "'$p'";
+    }
+    okraOptions["products"] = products;
 
     okraOptions["source"] = "flutter";
     okraOptions["isWebview"] = true;
-    print(products.toString());
+    print(products);
+    print(mBuildOkraWidgetWithOptions(okraOptions));
 
     await Navigator.push(
       context,

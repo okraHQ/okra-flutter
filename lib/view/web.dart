@@ -51,7 +51,7 @@ class _WebState extends State<Web> {
               ).toString()
               :
               Uri.dataFromString(
-                buildOkraWidgetWithOptions(
+                mBuildOkraWidgetWithOptions(
                   widget.okraOptions,
                 ),
                 mimeType: 'text/html',

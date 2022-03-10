@@ -21,19 +21,6 @@ String mBuildOkraWidgetWithOptions(
                 key: '${okraOptions["key"]}',
                 token: '${okraOptions["token"]}',
                 products: ${okraOptions["products"]},
-                logo: '${okraOptions["logo"]}',
-                payment: ${okraOptions["payment"]},
-                color: '${okraOptions["color"]}',
-                filter: '${okraOptions["filter"]}',
-                isCorporate: ${okraOptions["isCorporate"]},
-                limit: ${okraOptions["limit"]},
-                callback_url: '${okraOptions["callback_url"]}',
-                connectMessage: '${okraOptions["connectMessage"]}',
-                currency: '${okraOptions["currency"]}',
-                widget_success: '${okraOptions["widget_success"]}',
-                widget_failed: '${okraOptions["widget_failed"]}',
-                exp: '${okraOptions["exp"]}',
-                charge: '${okraOptions["charge"]}',
                 onSuccess: function(data){
                       let response = {event:'option success', data}
                       window.FlutterOnSuccess.postMessage(JSON.stringify(response))
