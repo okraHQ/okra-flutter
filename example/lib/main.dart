@@ -111,14 +111,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   // reply
                   Okra.buildWithOptions(
                       context,
-                      key: "7d9d39f0-23a0-5b93-8603-6c03fb0e02c5",
+                      key: "3f52ee9d-f081-55a7-a9d8-73d4b5878bd2",
                       token: "5da6358130a943486f33dced",
                       color: "#3AB795",
                       products: [
-                        "auth",
-                        "balance",
-                        "identity",
-                        // "transactions"
+                        'auth','identity','balance','transactions'
                       ] ,
                       // chargeAmount: 1000,
                       // chargeNote: "testing",
