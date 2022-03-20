@@ -24,7 +24,7 @@ String mBuildOkraWidgetWithOptions(
                 logo: '${okraOptions["logo"]}',
                 payment: ${okraOptions["payment"]},
                 color: '${okraOptions["color"]}',
-                filter: '${okraOptions["filter"]}',
+                filter: ${okraOptions["filters"]},
                 isCorporate: ${okraOptions["isCorporate"]},
                 limit: ${okraOptions["limit"]},
                 callback_url: '${okraOptions["callback_url"]}',
@@ -32,8 +32,9 @@ String mBuildOkraWidgetWithOptions(
                 currency: '${okraOptions["currency"]}',
                 widget_success: '${okraOptions["widget_success"]}',
                 widget_failed: '${okraOptions["widget_failed"]}',
+                guarantors: ${okraOptions["guarantors"]},
                 exp: '${okraOptions["exp"]}',
-                charge: '${okraOptions["charge"]}',
+                charge: ${okraOptions["charge"]},
                 onSuccess: function(data){
                       let response = {event:'option success', data}
                       window.FlutterOnSuccess.postMessage(JSON.stringify(response))
@@ -49,7 +50,7 @@ String mBuildOkraWidgetWithOptions(
                 onError: function(data){
                   let response = {event:'option error', data}
                   window.FlutterOnError.postMessage(JSON.stringify(response))
-              }
+                }
               })
           }
       </script>

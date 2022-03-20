@@ -117,12 +117,31 @@ class _MyHomePageState extends State<MyHomePage> {
                       products: [
                         'auth','identity','balance','transactions'
                       ] ,
-                      // chargeAmount: 1000,
-                      // chargeNote: "testing",
-                      // chargeType: "one-time",
-                      // chargeCurrency: "NGN",
+                      chargeAmount: 1000,
+                      chargeNote: "testing",
+                      chargeType: "one-time",
+                      chargeCurrency: "NGN",
                       environment: "production",
                       clientName: "clientName",
+                      logo: "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
+                      limit: 3,
+                      currency: "NGN",
+                      isCorporate : false,
+                      payment: false,
+                      connectMessage : "Which account do you want to connect with?",
+                      callbackUrl : "",
+                      redirectUrl : "",
+                      widgetSuccess : "Your account was successfully linked to SwipeNG",
+                      widgetFailed : "An unknown error occurred, please try again.",
+                      guarantors : {
+                        "status": false,
+                        "message": "Okra requires you to add guarantors",
+                        "number": 3,
+                      },
+                      filters : {
+                        "industry_type": "all",
+                        "banks": banks
+                      },
                       onSuccess: (data) {
                         print("Success");
                         print(data);
