@@ -1,7 +1,5 @@
-String mBuildOkraWidgetWithOptions(
-    final Map<String, dynamic> okraOptions
-) =>
-'''
+String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
+    '''
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -44,10 +42,7 @@ String mBuildOkraWidgetWithOptions(
 </html>
 ''';
 
-String buildOkraWidgetWithShortUrl(
-    final String shortUrl
-    ) =>
-    '''
+String buildOkraWidgetWithShortUrl(final String shortUrl) => '''
 <!DOCTYPE html>
 <html lang="en">
   <head>

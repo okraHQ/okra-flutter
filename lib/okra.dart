@@ -1,56 +1,52 @@
-import 'package:device_info/device_info.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:okra_widget/raw/okra_html.dart';
 import 'package:okra_widget/utils/helper.dart';
-import 'models/okra_handler.dart';
-import'dart:io' show Platform;
-import 'models/okra_handler.dart';
+import 'dart:io' show Platform;
 import 'view/web.dart';
 
 class Okra {
   Okra._();
   static Future<void> buildWithOptions(
-      BuildContext context, {
-        @required String key,
-        @required String token,
-        String appId,
-        List<String> products,
-        String environment,
-        String clientName,
-        String color,
-        int limit,
-        bool isCorporate,
-        bool payment,
-        String connectMessage,
-        String callbackUrl,
-        String redirectUrl,
-        String logo,
-        String widgetSuccess,
-        String widgetFailed,
-        String currency,
-        bool noPeriodic,
-        String exp,
-        String successTitle,
-        String successMessage,
-        String chargeType,
-        int chargeAmount,
-        String chargeNote,
-        String chargeCurrency,
-        Map<String, Object> guarantors,
-        Map<String, Object> filters,
-        Function(String data) onSuccess,
-        Function(String message) onError,
-        Function(String message) onClose,
-        Function(String message) beforeClose,
-      }) async {
+    BuildContext context, {
+    required String key,
+    required String token,
+    String? appId,
+    required List<String> products,
+    String? environment,
+    String? clientName,
+    String? color,
+    int? limit,
+    bool? isCorporate,
+    bool? payment,
+    String? connectMessage,
+    String? callbackUrl,
+    String? redirectUrl,
+    String? logo,
+    String? widgetSuccess,
+    String? widgetFailed,
+    String? currency,
+    bool? noPeriodic,
+    String? exp,
+    String? successTitle,
+    String? successMessage,
+    String? chargeType,
+    int? chargeAmount,
+    String? chargeNote,
+    String? chargeCurrency,
+    Map<String, Object>? guarantors,
+    Map<String, Object>? filters,
+    Function(String data)? onSuccess,
+    Function(String message)? onError,
+    Function(String message)? onClose,
+    Function(String message)? beforeClose,
+  }) async {
+    AndroidDeviceInfo? androidDeviceInfo;
+    IosDeviceInfo? iosDeviceInfo;
 
-    AndroidDeviceInfo androidDeviceInfo;
-    IosDeviceInfo iosDeviceInfo;
-
-    if(Platform.isAndroid) {
+    if (Platform.isAndroid) {
       androidDeviceInfo = await Helper.getAndroidInfo();
-    }else {
+    } else {
       iosDeviceInfo = await Helper.getIosInfo();
     }
 
@@ -74,20 +70,23 @@ class Okra {
     okraOptions["noPeriodic"] = noPeriodic ?? false;
     okraOptions["exp"] = exp ?? "";
     okraOptions["success_title"] = successTitle ?? "";
-    okraOptions["guarantors"] = "'$guarantors'" ?? null;
-    okraOptions["filters"] = "'$filters'" ?? null;
-    var charge =  {
+    okraOptions["guarantors"] = "'$guarantors'";
+    okraOptions["filters"] = "'$filters'";
+    var charge = {
       "type": chargeType ?? "",
       "amount": chargeAmount ?? "",
-      "note":  chargeNote ?? "",
+      "note": chargeNote ?? "",
       "currency": chargeCurrency ?? ""
     };
     okraOptions["charge"] = okraOptions["payment"] ? "'$charge'" : false;
 
-
-    okraOptions["uuid"] =  Platform.isAndroid ? androidDeviceInfo.androidId : iosDeviceInfo.identifierForVendor;
-    String deviceName = Platform.isAndroid ? androidDeviceInfo.brand : iosDeviceInfo.name;
-    String deviceModel = Platform.isAndroid ? androidDeviceInfo.model : iosDeviceInfo.model;
+    okraOptions["uuid"] = Platform.isAndroid
+        ? androidDeviceInfo!.androidId
+        : iosDeviceInfo!.identifierForVendor;
+    String? deviceName =
+        Platform.isAndroid ? androidDeviceInfo!.brand : iosDeviceInfo!.name;
+    String? deviceModel =
+        Platform.isAndroid ? androidDeviceInfo!.model : iosDeviceInfo!.model;
     okraOptions["deviceInfo"] = "";
     // okraOptions["deviceInfo"] = {
     //   "deviceName" : deviceName,
@@ -99,7 +98,7 @@ class Okra {
 
     for (String p in products) {
       int i = products.indexOf(p);
-      products[i] =  "'$p'";
+      products[i] = "'$p'";
     }
     okraOptions["products"] = products;
 
@@ -120,19 +119,16 @@ class Okra {
         ),
       ),
     );
-
   }
 
   static Future<void> buildWithShortUrl(
-      BuildContext context, {
-        String shortUrl,
-        Function(String data) onSuccess,
-        Function(String message) onError,
-        Function(String message) onClose,
-        Function(String message) beforeClose,
-      }) async {
-
-
+    BuildContext context, {
+    required String shortUrl,
+    Function(String data)? onSuccess,
+    Function(String message)? onError,
+    Function(String message)? onClose,
+    Function(String message)? beforeClose,
+  }) async {
     await Navigator.push(
       context,
       MaterialPageRoute(
