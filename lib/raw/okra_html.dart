@@ -24,6 +24,9 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
                 color: '${okraOptions["color"]}',
                 filter: ${okraOptions["filters"]},
                 isCorporate: ${okraOptions["isCorporate"]},
+                showBalance: ${okraOptions["showBalance"]},
+                geoLocation: ${okraOptions["geoLocation"]},
+                multi_account: ${okraOptions["multiAccount"]},
                 limit: ${okraOptions["limit"]},
                 callback_url: '${okraOptions["callback_url"]}',
                 connectMessage: '${okraOptions["connectMessage"]}',
@@ -33,6 +36,7 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
                 guarantors: ${okraOptions["guarantors"]},
                 exp: '${okraOptions["exp"]}',
                 charge: ${okraOptions["charge"]},
+                customer: ${okraOptions["customer"]},
                 onSuccess: function(data){
                       let response = {event:'option success', data}
                       window.FlutterOnSuccess.postMessage(JSON.stringify(response))

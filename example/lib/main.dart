@@ -80,11 +80,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       chargeCurrency: "NGN",
                       environment: "production",
                       clientName: "clientName",
+                      customerBvn: "22188789177",
                       logo:
                           "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
                       limit: 3,
                       currency: "NGN",
                       isCorporate: false,
+                      showBalance: true,
+                      geoLocation: true,
                       payment: false,
                       connectMessage:
                           "Which account do you want to connect with?",
@@ -112,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                   // Okra.buildWithShortUrl(
                   //     context,
-                  //     shortUrl: "7IF1Kwn8v",
+                  //     shortUrl: "ns_aIEz8r",
                   //     onSuccess: (data) {
                   //       print("Success");
                   //       print(data);

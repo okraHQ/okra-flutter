@@ -8,38 +8,46 @@ import 'view/web.dart';
 class Okra {
   Okra._();
   static Future<void> buildWithOptions(
-    BuildContext context, {
-    required String key,
-    required String token,
-    String? appId,
-    required List<String> products,
-    String? environment,
-    String? clientName,
-    String? color,
-    int? limit,
-    bool? isCorporate,
-    bool? payment,
-    String? connectMessage,
-    String? callbackUrl,
-    String? redirectUrl,
-    String? logo,
-    String? widgetSuccess,
-    String? widgetFailed,
-    String? currency,
-    bool? noPeriodic,
-    String? exp,
-    String? successTitle,
-    String? successMessage,
-    String? chargeType,
-    int? chargeAmount,
-    String? chargeNote,
-    String? chargeCurrency,
-    Map<String, Object>? guarantors,
-    Map<String, Object>? filters,
-    Function(String data)? onSuccess,
-    Function(String message)? onError,
-    Function(String message)? onClose,
-    Function(String message)? beforeClose,
+        BuildContext context, {
+        required String key,
+        required String token,
+        String? appId,
+        required List<String> products,
+        String? environment,
+        required String clientName,
+        String? color,
+        int? limit,
+        bool? isCorporate,
+        bool? showBalance,
+        bool? geoLocation,
+        bool? multiAccount,
+        bool? payment,
+        String? connectMessage,
+        String? callbackUrl,
+        String? redirectUrl,
+        String? logo,
+        String? widgetSuccess,
+        String? widgetFailed,
+        String? currency,
+        bool? noPeriodic,
+        String? exp,
+        String? successTitle,
+        String? successMessage,
+        String? chargeType,
+        int? chargeAmount,
+        String? chargeCurrency,
+        String? chargeNote,
+        String? customerId,
+        String? customerBvn,
+        String? customerPhone,
+        String? customerEmail,
+        String? customerNin,
+        Map<String, Object>? guarantors,
+        Map<String, Object>? filters,
+        Function(String data)? onSuccess,
+        Function(String message)? onError,
+        Function(String message)? onClose,
+        Function(String message)? beforeClose,
   }) async {
     AndroidDeviceInfo? androidDeviceInfo;
     IosDeviceInfo? iosDeviceInfo;
@@ -50,15 +58,25 @@ class Okra {
       iosDeviceInfo = await Helper.getIosInfo();
     }
 
+    Map<String, Map> customerObj = new Map();
+    customerObj.putIfAbsent("id", () => {"id": "'$customerId'"});
+    customerObj.putIfAbsent("bvn", () => {"bvn": "'$customerBvn'"});
+    customerObj.putIfAbsent("phone", () => {"phone": "'$customerPhone'"});
+    customerObj.putIfAbsent("email", () => {"email": "'$customerEmail'"});
+    customerObj.putIfAbsent("nin", () => {"nin": "'$customerNin'"});
+
     Map<String, dynamic> okraOptions = new Map();
     okraOptions["key"] = key;
     okraOptions["token"] = token;
     okraOptions["app_id"] = appId;
-    okraOptions["env"] = environment;
-    okraOptions["clientName"] = clientName ?? "";
+    okraOptions["env"] = environment ?? "production-sandbox";
+    okraOptions["clientName"] = clientName;
     okraOptions["color"] = color ?? "#3AB795";
     okraOptions["limit"] = limit ?? 24;
     okraOptions["isCorporate"] = isCorporate ?? false;
+    okraOptions["showBalance"] = showBalance ?? false;
+    okraOptions["geoLocation"] = geoLocation ?? false;
+    okraOptions["multiAccount"] = multiAccount ?? false;
     okraOptions["payment"] = payment ?? false;
     okraOptions["connectMessage"] = connectMessage;
     okraOptions["callback_url"] = callbackUrl ?? "";
@@ -72,6 +90,7 @@ class Okra {
     okraOptions["success_title"] = successTitle ?? "";
     okraOptions["guarantors"] = "'$guarantors'";
     okraOptions["filters"] = "'$filters'";
+
     var charge = {
       "type": chargeType ?? "",
       "amount": chargeAmount ?? "",
@@ -79,6 +98,22 @@ class Okra {
       "currency": chargeCurrency ?? ""
     };
     okraOptions["charge"] = okraOptions["payment"] ? "'$charge'" : false;
+
+    var customer = {};
+    if(customerId !=null && customerId.isNotEmpty) {
+      customer = customerObj["id"]!;
+    } else if(customerBvn !=null && customerBvn.isNotEmpty) {
+      customer = customerObj["bvn"]!;
+    } else if(customerPhone !=null && customerPhone.isNotEmpty) {
+      customer = customerObj["phone"]!;
+    } else if(customerEmail !=null && customerEmail.isNotEmpty) {
+      customer = customerObj["email"]!;
+    } else if(customerNin !=null && customerNin.isNotEmpty) {
+      customer = customerObj["nin"]!;
+    }
+    okraOptions["customer"] = "$customer";
+
+
 
     okraOptions["uuid"] = Platform.isAndroid
         ? androidDeviceInfo!.androidId
