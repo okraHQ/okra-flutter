@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:okra_widget/models/okra_handler.dart';
-import 'package:okra_widget/raw/okra_html.dart';
+import 'package:okra_widget_official/models/okra_handler.dart';
+import 'package:okra_widget_official/raw/okra_html.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class Web extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:okra_widget/raw/okra_html.dart';
-import 'package:okra_widget/utils/helper.dart';
+import 'package:okra_widget_official/raw/okra_html.dart';
+import 'package:okra_widget_official/utils/helper.dart';
 import 'dart:io' show Platform;
 import 'view/web.dart';
 
@@ -51,6 +51,7 @@ class Okra {
   }) async {
     AndroidDeviceInfo? androidDeviceInfo;
     IosDeviceInfo? iosDeviceInfo;
+    // DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
 
     if (Platform.isAndroid) {
       androidDeviceInfo = await Helper.getAndroidInfo();
@@ -115,9 +116,7 @@ class Okra {
 
 
 
-    okraOptions["uuid"] = Platform.isAndroid
-        ? androidDeviceInfo!.androidId
-        : iosDeviceInfo!.identifierForVendor;
+    okraOptions["uuid"] = await Helper.getDeviceUUID();
     String? deviceName =
         Platform.isAndroid ? androidDeviceInfo!.brand : iosDeviceInfo!.name;
     String? deviceModel =
@@ -139,8 +138,9 @@ class Okra {
 
     okraOptions["source"] = "flutter";
     okraOptions["isWebview"] = true;
-    print(products);
-    print(mBuildOkraWidgetWithOptions(okraOptions));
+    print(okraOptions["uuid"]);
+    // print(products);
+    // print(mBuildOkraWidgetWithOptions(okraOptions));
 
     await Navigator.push(
       context,
