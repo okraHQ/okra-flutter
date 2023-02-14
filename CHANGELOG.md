@@ -1,3 +1,9 @@
+3.1.0
+  - migrated the widget and all sub-dependencies to null safety
+  - added support for building with short url
+  - added returning customer support feature
+  - changed web CDN
+
 2.0.3-beta
   - updated the webview to 2.0.2
   - Removed Imei lib

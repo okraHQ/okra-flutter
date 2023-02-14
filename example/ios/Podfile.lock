@@ -1,40 +1,40 @@
 PODS:
   - device_info (0.0.1):
     - Flutter
+  - device_info_plus (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
-  - imei_plugin (0.0.1):
+  - platform_device_id (0.0.1):
     - Flutter
-  - unique_identifier (0.0.1):
-    - Flutter
-  - webview_flutter (0.0.1):
+  - webview_flutter_wkwebview (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - device_info (from `.symlinks/plugins/device_info/ios`)
-  - Flutter (from `.symlinks/flutter/ios`)
-  - imei_plugin (from `.symlinks/plugins/imei_plugin/ios`)
-  - unique_identifier (from `.symlinks/plugins/unique_identifier/ios`)
-  - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
+  - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
+  - Flutter (from `Flutter`)
+  - platform_device_id (from `.symlinks/plugins/platform_device_id/ios`)
+  - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/ios`)
 
 EXTERNAL SOURCES:
   device_info:
     :path: ".symlinks/plugins/device_info/ios"
+  device_info_plus:
+    :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
-    :path: ".symlinks/flutter/ios"
-  imei_plugin:
-    :path: ".symlinks/plugins/imei_plugin/ios"
-  unique_identifier:
-    :path: ".symlinks/plugins/unique_identifier/ios"
-  webview_flutter:
-    :path: ".symlinks/plugins/webview_flutter/ios"
+    :path: Flutter
+  platform_device_id:
+    :path: ".symlinks/plugins/platform_device_id/ios"
+  webview_flutter_wkwebview:
+    :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
 
 SPEC CHECKSUMS:
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
-  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  imei_plugin: cb1af7c223ac2d82dcd1457a7137d93d65d2a3cd
-  unique_identifier: ebb92b4bc4ad9c2c93f85cb5e02f70ad168a2bd6
-  webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
+  device_info_plus: e5c5da33f982a436e103237c0c85f9031142abed
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  platform_device_id: 81b3e2993881f87d0c82ef151dc274df4869aef5
+  webview_flutter_wkwebview: b7e70ef1ddded7e69c796c7390ee74180182971f
 
-PODFILE CHECKSUM: ebd43b443038e611b86ede96e613bd6033c49497
+PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.11.3

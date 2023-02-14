@@ -33,6 +33,7 @@ On iOS, opt-in to the embedded views preview by adding a boolean property to the
 ```
 
 ### Usage
+#### Build with options
 ```dart
 var banks = [
                     "ecobank-nigeria",
@@ -54,51 +55,78 @@ var banks = [
                     "kuda-bank"
                   ];
 
+                  Okra.buildWithOptions(context,
+                                        key: "3f52ee9d-f081-55a7-a9d8-73d4b5878bd2",
+                                        token: "5da6358130a943486f33dced",
+                                        color: "#3AB795",
+                                        products: ['auth', 'identity', 'balance', 'transactions'],
+                                        chargeAmount: 1000,
+                                        chargeNote: "testing",
+                                        chargeType: "one-time",
+                                        chargeCurrency: "NGN",
+                                        environment: "production",
+                                        clientName: "clientName",
+                                        customerBvn: "22188789177",
+                                        logo:
+                                            "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
+                                        limit: 3,
+                                        currency: "NGN",
+                                        isCorporate: false,
+                                        showBalance: true,
+                                        geoLocation: true,
+                                        payment: false,
+                                        connectMessage:
+                                            "Which account do you want to connect with?",
+                                        callbackUrl: "",
+                                        redirectUrl: "",
+                                        widgetSuccess:
+                                            "Your account was successfully linked to SwipeNG",
+                                        widgetFailed:
+                                            "An unknown error occurred, please try again.",
+                                        guarantors: {
+                                          "status": false,
+                                          "message": "Okra requires you to add guarantors",
+                                          "number": 3,
+                                        },
+                                        filters: {"industry_type": "all", "banks": banks},
+                                        onSuccess: (data) {
+                                      print("Success");
+                                      print(data);
+                                    }, onError: (message) {
+                                      print("error");
+                                      print(message);
+                                    }, onClose: (message) {
+                                      print("close");
+                                      print(message);
+                                    });
+```
 
-                  var okraOptions = {
-                    "key": "public key",
-                    "token": "client token",
-                    "products": [
-                      "auth",
-                      "balance",
-                      "identity",
-                      "transactions"
-                    ],
-                    "environment": "production",
-                    "clientName": "Bassey",
-                    "color" : "#9013FE",
-                    "limit" : "3",
-                    "isCorporate" : false,
-                    "connectMessage" : "Which account do you want to connect with?",
-                    "callback_url" : "",
-                    "redirect_url" : "",
-                    "logo" : "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
-                    "widget_success" : "Your account was successfully linked to SwipeNG",
-                    "widget_failed" : "An unknown error occurred, please try again.",
-                    "currency" : "NGN",
-                    "noPeriodic" : true,
-                    "exp" : "",
-                    "success_title" : "null",
-                    "success_message" : "null",
-                    "guarantors" : {
-                      "status": false,
-                      "message": "Okra requires you to add guarantors",
-                      "number": 3,
-                    },
-                    "filter" : {
-                      "industry_type": "all",
-                      "banks": banks
-                    }
-                  };
 
-                  OkraHandler reply = await Okra.create(context, okraOptions);
+#### Build with shortUrl
+``` dart
+
+                Okra.buildWithShortUrl(
+                        context,
+                        shortUrl: "ns_aIEz8r",
+                        onSuccess: (data) {
+                          print("Success");
+                          print(data);
+                        },
+                        onError: ( message) {
+                          print("error");
+                          print(message);
+                        },
+                        onClose: (message) {
+                          print("close");
+                          print(message);
+                        }
+                    );
 ```
 
 ## OkraOptions
 
 |Name                   | Type           | Required            | Default Value       | Description         |
 |-----------------------|----------------|---------------------|---------------------|---------------------|
-|  `isWebview `         | `boolean`      | true                |  true               | 
 |  `key `               | `String`       | true                |  undefined          | Your public key from Okra.
 |  `token`              | `String`       | true                |  undefined          | Your pubic Key from Okra dashboard. Use test key for test mode and live key for live mode
 |  `products`           | `ArrayList<Enums.Product>`| true     |  undefined          | The Okra products you want to use with the widget.

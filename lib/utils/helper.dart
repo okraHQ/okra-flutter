@@ -1,46 +1,36 @@
 import 'dart:io';
-
-import 'package:device_info/device_info.dart';
-
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/services.dart';
+import 'package:platform_device_id/platform_device_id.dart';
 
 class Helper {
-  static Future<String> getDeviceUUID() async {
-    String identifier = "";
-    final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+  static Future<String?> getDeviceUUID() async {
+    String? deviceId;
+    // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      if (Platform.isAndroid) {
-        var build = await deviceInfoPlugin.androidInfo;
-        print("this is the id ${build.id}");
-        identifier = build.androidId; //UUID for Android
-      } else if (Platform.isIOS) {
-        var data = await deviceInfoPlugin.iosInfo;
-        identifier = data.identifierForVendor; //UUID for iOS
-      }
-    } catch (ex) {}
-    return identifier;
+      deviceId = await PlatformDeviceId.getDeviceId;
+    } on PlatformException {
+      deviceId = 'Failed to get deviceId.';
+    }
+
+    return deviceId;
   }
 
-  static Future<AndroidDeviceInfo> getAndroidInfo() async {
+  static Future<AndroidDeviceInfo?> getAndroidInfo() async {
     final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
     try {
-      if (Platform.isAndroid) {
-        return await deviceInfoPlugin.androidInfo;
-      }
+      return await deviceInfoPlugin.androidInfo;
     } catch (ex) {
       return null;
     }
   }
 
-  static Future<IosDeviceInfo> getIosInfo() async {
+  static Future<IosDeviceInfo?> getIosInfo() async {
     final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
     try {
-      if (Platform.isIOS) {
-        return await deviceInfoPlugin.iosInfo;
-      }
+      return await deviceInfoPlugin.iosInfo;
     } catch (ex) {
       return null;
     }
   }
-
-
 }
