@@ -73,3 +73,4 @@ build/
 
 # Environment variables
 *.env
+/.flutter-plugins-dependencies
