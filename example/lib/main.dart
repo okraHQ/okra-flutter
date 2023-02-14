@@ -1,9 +1,12 @@
-import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:flutter/material.dart';
 import 'package:okra_widget_official/okra_widget.dart';
 
-void main() => runApp(MyApp());
+Future main() async {
+  await dotenv.load(fileName: ".env");
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -52,8 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
     ];
 
     Okra.buildWithOptions(context,
-        key: "f66a6ddd-4ca2-50d1-811b-e70136346c1d",
-        token: "5d9288ea182d3d000cb7c486",
+        key: dotenv.env['key']!,
+        token: dotenv.env['token']!,
         color: "#3AB795",
         products: ['auth', 'identity', 'balance', 'transactions'],
         chargeAmount: 100,
@@ -62,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
         chargeCurrency: "NGN",
         environment: "production",
         clientName: "clientName",
-        customerBvn: "22188789177",
+        customerBvn: dotenv.env['bvn']!,
         logo:
         "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
         limit: 3,
@@ -100,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void buildWithShortUrl() {
     Okra.buildWithShortUrl(
         context,
-        shortUrl: "ns_aIEz8r",
+        shortUrl: dotenv.env['url']!,
         onSuccess: (data) {
           print("Success");
           print(data);
