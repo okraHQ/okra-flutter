@@ -9,7 +9,7 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
     <title>Okra React Native SDK</title>
   </head>
     <body onload="buildWithOptions()" style="background-color:#fff;height:100vh">
-      <script src="https://cdn.okra.ng/v2/bundle.js"></script>
+      <script src="https://dev-cdn.okra.ng/dist/bundle.js"></script>
       <script type="text/javascript">
           window.onload = buildWithOptions;
           function buildWithOptions(){
@@ -70,7 +70,7 @@ String buildOkraWidgetWithShortUrl(final String? shortUrl) => '''
     <title>Okra React Native SDK</title>
   </head>
     <body onload="buildWithShortUrl()" style="background-color:#fff;height:100vh">
-      <script src="https://cdn.okra.ng/v2/bundle.js"></script>
+      <script src="https://dev-cdn.okra.ng/dist/bundle.js"></script>
       <script type="text/javascript">
           window.onload = buildWithOptions;
           function buildWithShortUrl(){
