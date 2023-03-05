@@ -27,7 +27,7 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
                       let response = {event:'option close'}
                       window.FlutterOnClose.postMessage(JSON.stringify(response))
                   },
-                  BeforeClose: function(){
+                  beforeClose: function(){
                     let response = {event:'option before close'}
                     window.FlutterBeforeClose.postMessage(JSON.stringify(response))
                 },
@@ -66,7 +66,7 @@ String buildOkraWidgetWithShortUrl(final String shortUrl) => '''
                     let response = {event:'option close'}
                     window.FlutterOnClose.postMessage(JSON.stringify(response))
                 },
-                BeforeClose: function(){
+                beforeClose: function(){
                   let response = {event:'option before close'}
                   window.FlutterBeforeClose.postMessage(JSON.stringify(response))
                 },
