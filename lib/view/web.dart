@@ -56,14 +56,24 @@ class _WebState extends State<Web> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      WebViewWidget(controller: _controller),
-      isLoading
-          ? Center(
-              child: CircularProgressIndicator(),
-            )
-          : Container(width: 0, height: 0, color: Colors.transparent),
-    ]);
+    return Scaffold(
+      body: SafeArea(
+        child: Stack(children: [
+          WebViewWidget(
+            controller: _controller,
+            gestureRecognizers: [
+              Factory(() => VerticalDragGestureRecognizer()),
+              Factory(() => TapGestureRecognizer()),
+            ].toSet(),
+          ),
+          isLoading
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              : Container(width: 0, height: 0, color: Colors.transparent),
+        ]),
+      ),
+    );
   }
 
   void setInitialUrl({required void Function() callback}) {
