@@ -1,6 +1,5 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:okra_widget_official/raw/okra_html.dart';
 import 'package:okra_widget_official/utils/helper.dart';
 import 'dart:io' show Platform;
 import 'view/web.dart';
@@ -116,7 +115,9 @@ class Okra {
 
 
 
-    okraOptions["uuid"] = await Helper.getDeviceUUID();
+    String? uuid = Platform.isAndroid ? androidDeviceInfo!.serialNumber : iosDeviceInfo!.identifierForVendor;
+
+    okraOptions["uuid"] = uuid;
     String? deviceName =
         Platform.isAndroid ? androidDeviceInfo!.brand : iosDeviceInfo!.name;
     String? deviceModel =
