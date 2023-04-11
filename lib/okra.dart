@@ -118,10 +118,10 @@ class Okra {
     String? uuid = Platform.isAndroid ? androidDeviceInfo!.serialNumber : iosDeviceInfo!.identifierForVendor;
 
     okraOptions["uuid"] = uuid;
-    String? deviceName =
-        Platform.isAndroid ? androidDeviceInfo!.brand : iosDeviceInfo!.name;
-    String? deviceModel =
-        Platform.isAndroid ? androidDeviceInfo!.model : iosDeviceInfo!.model;
+    // String? deviceName =
+    //     Platform.isAndroid ? androidDeviceInfo!.brand : iosDeviceInfo!.name;
+    // String? deviceModel =
+    //     Platform.isAndroid ? androidDeviceInfo!.model : iosDeviceInfo!.model;
     okraOptions["deviceInfo"] = "";
     // okraOptions["deviceInfo"] = {
     //   "deviceName" : deviceName,
@@ -140,8 +140,7 @@ class Okra {
     okraOptions["source"] = "flutter";
     okraOptions["isWebview"] = true;
     print(okraOptions["uuid"]);
-    // print(products);
-    // print(mBuildOkraWidgetWithOptions(okraOptions));
+
 
     await Navigator.push(
       context,

@@ -1,3 +1,7 @@
+3.1.2
+  - major update to our sub dependencies
+  - bug fixes
+
 3.1.0
   - migrated the widget and all sub-dependencies to null safety
   - added support for building with short url

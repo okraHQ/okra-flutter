@@ -14,15 +14,7 @@ class Web extends StatefulWidget {
   final Function(String message)? onClose;
   final Function(String message)? beforeClose;
 
-  Web(
-      {Key? key,
-      this.okraOptions,
-      this.shortUrl,
-      required this.useShort,
-      this.onError,
-      this.beforeClose,
-      this.onClose,
-      this.onSuccess})
+  Web({Key? key, this.okraOptions, this.shortUrl, required this.useShort, this.onError, this.beforeClose, this.onClose, this.onSuccess})
       : super(key: key);
 
   @override
@@ -32,71 +24,80 @@ class Web extends StatefulWidget {
 class _WebState extends State<Web> {
   late WebViewController _controller;
   bool isLoading = true;
-  OkraHandler okraHandler =
-      new OkraHandler(false, false, false, true, false, "");
+  OkraHandler okraHandler = new OkraHandler(false, false, false, true, false, "");
+
+  void onFlutterSuccess(JavaScriptMessage message) {
+    if (widget.onSuccess != null) {
+      widget.onSuccess!(message.message);
+    }
+  }
+
+  void onFlutterError(JavaScriptMessage message) {
+    if (widget.onError != null) {
+      widget.onError!(jsonDecode(message.message)["data"]["error"].toString());
+    }
+  }
+
+  void onFlutterClose(JavaScriptMessage message) {
+    if (widget.onClose != null) {
+      widget.onClose!(message.message);
+    }
+    Navigator.pop(context);
+  }
+
+  void onFlutterBeforeClose(JavaScriptMessage message) {
+    if (widget.beforeClose != null) {
+      widget.beforeClose!(message.message);
+    }
+  }
+
+  void onPageLoaded(String _) {
+    setState(() {
+      isLoading = false;
+    });
+  }
+
+  String getUrl(bool useShort) {
+    if (useShort) {
+      return buildOkraWidgetWithShortUrl(
+        widget.shortUrl,
+      );
+    } else
+      return mBuildOkraWidgetWithOptions(
+        widget.okraOptions!,
+      );
+  }
 
   @override
-  Widget build(BuildContext context) {
-    void onFlutterSuccess(JavaScriptMessage message) {
-      if (widget.onSuccess != null) {
-        widget.onSuccess!(message.message);
-      }
-    }
-
-    void onFlutterError(JavaScriptMessage message) {
-      if (widget.onError != null) {
-        widget.onError!(jsonDecode(message.message)["data"]["error"]
-            .toString());
-      }
-    }
-
-    void onFlutterClose(JavaScriptMessage message) {
-      if (widget.onClose != null) {
-        widget.onClose!(message.message);
-      }
-      Navigator.pop(context);
-    }
-
-    void onFlutterBeforeClose(JavaScriptMessage message) {
-      if (widget.beforeClose != null) {
-        widget.beforeClose!(message.message);
-      }
-    }
-
-    void onPageLoaded(String _) {
-      setState(() {
-        isLoading = false;
-      });
-    }
-
-    String getUrl(bool useShort) {
-      if(useShort) {
-        return
-          buildOkraWidgetWithShortUrl(
-            widget.shortUrl,
-          );
-
-      } else return
-        mBuildOkraWidgetWithOptions(
-          widget.okraOptions!,
-        );
-    }
-
-    print(getUrl(widget.useShort));
+  void initState() {
+    super.initState();
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..addJavaScriptChannel("FlutterOnSuccess", onMessageReceived: onFlutterSuccess)
       ..addJavaScriptChannel("FlutterOnError", onMessageReceived: onFlutterError)
       ..addJavaScriptChannel("FlutterOnClose", onMessageReceived: onFlutterClose)
       ..addJavaScriptChannel("FlutterBeforeClose", onMessageReceived: onFlutterBeforeClose)
-      ..setNavigationDelegate( NavigationDelegate(onPageFinished: onPageLoaded) )
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onPageFinished: onPageLoaded,
+          onNavigationRequest: (NavigationRequest request) {
+            return NavigationDecision.prevent;
+          },
+        ),
+      )
+      ..setUserAgent("Flutter;Webview")
       ..loadHtmlString(getUrl(widget.useShort));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // print(getUrl(widget.useShort));
     return Stack(children: [
       WebViewWidget(controller: _controller),
       isLoading
           ? Center(
-              child: CircularProgressIndicator(),
-            )
+        child: CircularProgressIndicator(),
+      )
           : Container(width: 0, height: 0, color: Colors.transparent),
     ]);
   }
