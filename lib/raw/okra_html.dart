@@ -52,6 +52,10 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
                 onError: function(data){
                   let response = {event:'option error', data}
                   window.FlutterOnError.postMessage(JSON.stringify(response))
+                },
+                onEvent: function(data){
+                  let response = {event:'option event', data}
+                  window.FlutterOnEvent.postMessage(JSON.stringify(response))
                 }
               })
           }
@@ -91,6 +95,10 @@ String buildOkraWidgetWithShortUrl(final String? shortUrl) => '''
                 onError: function(data){
                   let response = {event:'option error', data}
                   window.FlutterOnError.postMessage(JSON.stringify(response))
+                },
+                onEvent: function(data){
+                  let response = {event:'option event', data}
+                  window.FlutterOnEvent.postMessage(JSON.stringify(response))
                 }
             })
           }

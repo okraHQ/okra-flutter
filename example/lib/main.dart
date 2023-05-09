@@ -96,7 +96,12 @@ class _MyHomePageState extends State<MyHomePage> {
         }, onClose: (message) {
           print("close");
           print(message);
-        });
+        },
+        onEvent: (message) {
+          print("event");
+          print(message);
+        }
+    );
   }
 
   void buildWithShortUrl() {
@@ -113,6 +118,10 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         onClose: (message) {
           print("close");
+          print(message);
+        },
+        onEvent: (message) {
+          print("event");
           print(message);
         }
     );

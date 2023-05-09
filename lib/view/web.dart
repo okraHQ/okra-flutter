@@ -13,9 +13,19 @@ class Web extends StatefulWidget {
   final Function(String message)? onError;
   final Function(String message)? onClose;
   final Function(String message)? beforeClose;
+  final Function(String message)? onEvent;
 
-  Web({Key? key, this.okraOptions, this.shortUrl, required this.useShort, this.onError, this.beforeClose, this.onClose, this.onSuccess})
-      : super(key: key);
+  Web({
+    Key? key,
+    this.okraOptions,
+    this.shortUrl,
+    required this.useShort,
+    this.onError,
+    this.beforeClose,
+    this.onClose,
+    this.onSuccess,
+    this.onEvent,
+  }) : super(key: key);
 
   @override
   _WebState createState() => _WebState();
@@ -24,7 +34,8 @@ class Web extends StatefulWidget {
 class _WebState extends State<Web> {
   late WebViewController _controller;
   bool isLoading = true;
-  OkraHandler okraHandler = new OkraHandler(false, false, false, true, false, "");
+  OkraHandler okraHandler =
+      new OkraHandler(false, false, false, true, false, "");
 
   void onFlutterSuccess(JavaScriptMessage message) {
     if (widget.onSuccess != null) {
@@ -51,6 +62,12 @@ class _WebState extends State<Web> {
     }
   }
 
+  void onFlutterEvent(JavaScriptMessage message) {
+    if (widget.onEvent != null) {
+      widget.onEvent!(message.message);
+    }
+  }
+
   void onPageLoaded(String _) {
     setState(() {
       isLoading = false;
@@ -73,10 +90,16 @@ class _WebState extends State<Web> {
     super.initState();
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..addJavaScriptChannel("FlutterOnSuccess", onMessageReceived: onFlutterSuccess)
-      ..addJavaScriptChannel("FlutterOnError", onMessageReceived: onFlutterError)
-      ..addJavaScriptChannel("FlutterOnClose", onMessageReceived: onFlutterClose)
-      ..addJavaScriptChannel("FlutterBeforeClose", onMessageReceived: onFlutterBeforeClose)
+      ..addJavaScriptChannel("FlutterOnSuccess",
+          onMessageReceived: onFlutterSuccess)
+      ..addJavaScriptChannel("FlutterOnError",
+          onMessageReceived: onFlutterError)
+      ..addJavaScriptChannel("FlutterOnClose",
+          onMessageReceived: onFlutterClose)
+      ..addJavaScriptChannel("FlutterBeforeClose",
+          onMessageReceived: onFlutterBeforeClose)
+      ..addJavaScriptChannel("FlutterOnEvent",
+          onMessageReceived: onFlutterBeforeClose)
       ..setNavigationDelegate(
         NavigationDelegate(
           onPageFinished: onPageLoaded,
@@ -96,8 +119,8 @@ class _WebState extends State<Web> {
       WebViewWidget(controller: _controller),
       isLoading
           ? Center(
-        child: CircularProgressIndicator(),
-      )
+              child: CircularProgressIndicator(),
+            )
           : Container(width: 0, height: 0, color: Colors.transparent),
     ]);
   }
