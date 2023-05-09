@@ -1,4 +1,4 @@
-3.1.2
+3.1.4
   - major update to our sub dependencies
   - bug fixes
 
