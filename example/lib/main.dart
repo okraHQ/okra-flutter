@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
         chargeCurrency: "NGN",
         environment: "production-sandbox",
         clientName: "clientName",
-        customerBvn: dotenv.env['bvn']!,
+        // customerBvn: dotenv.env['bvn']!,
         logo: "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
         limit: 3,
         currency: "NGN",
