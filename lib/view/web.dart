@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:okra_widget_official/models/okra_handler.dart';
@@ -88,6 +89,8 @@ class _WebState extends State<Web> {
   @override
   void initState() {
     super.initState();
+    // _controller = WebViewController()..loadHtmlString(getUrl(widget.useShort));
+
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..addJavaScriptChannel("FlutterOnSuccess",
@@ -104,7 +107,11 @@ class _WebState extends State<Web> {
         NavigationDelegate(
           onPageFinished: onPageLoaded,
           onNavigationRequest: (NavigationRequest request) {
-            return NavigationDecision.prevent;
+            print(request.url);
+            if(Platform.isAndroid) {
+              return NavigationDecision.prevent;
+            }
+            return  NavigationDecision.navigate;
           },
         ),
       )

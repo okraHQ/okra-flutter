@@ -26,10 +26,15 @@ dependencies:
 On iOS, opt-in to the embedded views preview by adding a boolean property to the app's Info.plist file with the key     `io.flutter.embedded_views_preview` and the value `true`.
 
 ```plist
-<dict>  
-  <key>io.flutter.embedded_views_preview</key>
-  <true/>  
-</dict>
+    <key>io.flutter.embedded_views_preview</key>
+	<string>YES</string>
+	<key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+        <key>NSAllowsArbitraryLoadsInWebContent</key>
+        <true/>
+    </dict>
 ```
 
 ### Usage
