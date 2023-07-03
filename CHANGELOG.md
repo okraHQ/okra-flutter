@@ -1,3 +1,6 @@
+3.1.5
+  - fixed issue with Navigation Delegate and IOS
+
 3.1.4
   - major update to our sub dependencies
   - bug fixes

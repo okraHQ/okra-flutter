@@ -43,7 +43,7 @@ class Okra {
     String? customerNin,
     Map<String, Object>? guarantors,
     Map<String, Object>? filters,
-    Function(String data)? onSuccess,
+    Function(dynamic data)? onSuccess,
     Function(String message)? onError,
     Function(String message)? onClose,
     Function(String message)? beforeClose,
@@ -134,6 +134,8 @@ class Okra {
           onClose: onClose,
           onError: onError,
           onSuccess: onSuccess,
+          onEvent: onEvent,
+          beforeClose: beforeClose,
         ),
       ),
     );
@@ -164,6 +166,7 @@ class Okra {
       MaterialPageRoute(
         builder: (BuildContext context) => Web(
           shortUrl: shortUrl,
+          okraOptions: deviceInfo,
           useShort: true,
           onClose: onClose,
           onError: onError,

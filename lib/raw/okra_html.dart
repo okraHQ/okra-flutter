@@ -6,7 +6,7 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okra React Native SDK</title>
+    <title>Okra Flutter SDK</title>
   </head>
     <body onload="buildWithOptions()" style="background-color:#fff;height:100vh">
       <script src="https://cdn.okra.ng/v2/bundle.js"></script>
@@ -37,6 +37,7 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
                 exp: '${okraOptions["exp"]}',
                 charge: ${okraOptions["charge"]},
                 customer: ${okraOptions["customer"]},
+                deviceInfo: ${okraOptions["charge"]},
                 onSuccess: function(data){
                       let response = {event:'option success', data}
                       window.FlutterOnSuccess.postMessage(JSON.stringify(response))
@@ -64,7 +65,7 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
 </html>
 ''';
 
-String buildOkraWidgetWithShortUrl(final String? shortUrl) => '''
+String buildOkraWidgetWithShortUrl(final String? shortUrl, dynamic deviceInfo) => '''
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -80,6 +81,7 @@ String buildOkraWidgetWithShortUrl(final String? shortUrl) => '''
           function buildWithShortUrl(){
               Okra.buildWithShortUrl({
                 short_url: '$shortUrl',
+                deviceInfo: '$deviceInfo',
                 onSuccess: function(data){
                     let response = {event:'option success', data}
                     window.FlutterOnSuccess.postMessage(JSON.stringify(response)) 

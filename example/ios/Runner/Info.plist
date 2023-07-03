@@ -35,6 +35,8 @@
         <key>NSAllowsArbitraryLoadsInWebContent</key>
         <true/>
     </dict>
+    <key>FLTEnableImpeller</key>
+    <false />
 	<key>UISupportedInterfaceOrientations</key>	
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

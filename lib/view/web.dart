@@ -79,6 +79,7 @@ class _WebState extends State<Web> {
     if (useShort) {
       return buildOkraWidgetWithShortUrl(
         widget.shortUrl,
+        widget.okraOptions
       );
     } else
       return mBuildOkraWidgetWithOptions(
@@ -89,8 +90,6 @@ class _WebState extends State<Web> {
   @override
   void initState() {
     super.initState();
-    // _controller = WebViewController()..loadHtmlString(getUrl(widget.useShort));
-
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..addJavaScriptChannel("FlutterOnSuccess",
@@ -102,12 +101,11 @@ class _WebState extends State<Web> {
       ..addJavaScriptChannel("FlutterBeforeClose",
           onMessageReceived: onFlutterBeforeClose)
       ..addJavaScriptChannel("FlutterOnEvent",
-          onMessageReceived: onFlutterBeforeClose)
+          onMessageReceived: onFlutterEvent)
       ..setNavigationDelegate(
         NavigationDelegate(
           onPageFinished: onPageLoaded,
           onNavigationRequest: (NavigationRequest request) {
-            print(request.url);
             if(Platform.isAndroid) {
               return NavigationDecision.prevent;
             }
