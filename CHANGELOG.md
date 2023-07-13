@@ -1,3 +1,7 @@
+3.1.6
+  - added support for new widget parameters, namely meta and options
+  - find grained device info
+
 3.1.5
   - fixed issue with Navigation Delegate and IOS
 
