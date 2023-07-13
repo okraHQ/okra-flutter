@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
     '''
 <!DOCTYPE html>
@@ -23,6 +25,8 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
                 payment: ${okraOptions["payment"]},
                 color: '${okraOptions["color"]}',
                 filter: ${okraOptions["filters"]},
+                meta: '${okraOptions["meta"]}',
+                options: ${okraOptions["options"]},
                 isCorporate: ${okraOptions["isCorporate"]},
                 showBalance: ${okraOptions["showBalance"]},
                 geoLocation: ${okraOptions["geoLocation"]},

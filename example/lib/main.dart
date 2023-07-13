@@ -2,6 +2,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:flutter/material.dart';
 import 'package:okra_widget_official/okra_widget.dart';
+import 'dart:developer' as developer;
 
 Future main() async {
   await dotenv.load(fileName: ".env");
@@ -63,11 +64,15 @@ class _MyHomePageState extends State<MyHomePage> {
         chargeNote: "testing",
         chargeType: "one-time",
         chargeCurrency: "NGN",
-        environment: "production-sandbox",
+        environment: "production",
         clientName: "clientName",
         // customerBvn: dotenv.env['bvn']!,
         logo: "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
         limit: 3,
+        meta: "Test Meta",
+        options: {
+          "name": "Flutter Options Test"
+        },
         currency: "NGN",
         isCorporate: false,
         showBalance: true,
@@ -89,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
         filters: {"industry_type": "all", "banks": banks},
         onSuccess: (data) {
           print("Success");
-          print(data);
+          developer.log('$data');
         }, onError: (message) {
           print("error");
           print(message);
@@ -110,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
         shortUrl: dotenv.env['url']!,
         onSuccess: (data) {
           print("Success");
-          print(data);
+          developer.log('$data');
         },
         onError: ( message) {
           print("error");

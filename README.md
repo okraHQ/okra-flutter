@@ -72,6 +72,10 @@ var banks = [
                                         environment: "production",
                                         clientName: "clientName",
                                         customerBvn: "22188789177",
+                                        meta: "Dynamic data type",
+                                        options: {
+                                          "name": "Test Map"
+                                        } 
                                         logo:
                                             "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
                                         limit: 3,

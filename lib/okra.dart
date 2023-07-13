@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:okra_widget_official/utils/helper.dart';
 import 'dart:io' show Platform;
@@ -43,13 +45,14 @@ class Okra {
     String? customerNin,
     Map<String, Object>? guarantors,
     Map<String, Object>? filters,
+    dynamic meta,
+    Map<String, dynamic>? options,
     Function(dynamic data)? onSuccess,
     Function(String message)? onError,
     Function(String message)? onClose,
     Function(String message)? beforeClose,
     Function(String message)? onEvent,
   }) async {
-
     Map<String, Map> customerObj = new Map();
     customerObj.putIfAbsent("id", () => {"id": "'$customerId'"});
     customerObj.putIfAbsent("bvn", () => {"bvn": "'$customerBvn'"});
@@ -82,6 +85,8 @@ class Okra {
     okraOptions["success_title"] = successTitle ?? "";
     okraOptions["guarantors"] = "'$guarantors'";
     okraOptions["filters"] = "'$filters'";
+    okraOptions["options"] = jsonEncode(options);
+    okraOptions["meta"] = meta;
 
     var charge = {
       "type": chargeType ?? "",
@@ -108,11 +113,11 @@ class Okra {
     final clientInfo = await Helper.getDeviceInfo();
 
     okraOptions["deviceInfo"] = {
-      "deviceName" : clientInfo!.deviceName,
-      "deviceId" : clientInfo.deviceId,
+      "deviceName": clientInfo!.deviceName,
+      "deviceId": clientInfo.deviceId,
       "osName": clientInfo.osName,
       "osVersion": clientInfo.osVersion,
-      "platform" : Platform.isAndroid ? "android" : "ios"
+      "platform": Platform.isAndroid ? "android" : "ios"
     };
 
     for (String p in products) {
@@ -150,15 +155,14 @@ class Okra {
     Function(String message)? beforeClose,
     Function(String message)? onEvent,
   }) async {
-
     final clientInfo = await Helper.getDeviceInfo();
 
     final deviceInfo = {
-      "deviceName" : clientInfo!.deviceName,
-      "deviceId" : clientInfo.deviceId,
+      "deviceName": clientInfo!.deviceName,
+      "deviceId": clientInfo.deviceId,
       "osName": clientInfo.osName,
       "osVersion": clientInfo.osVersion,
-      "platform" : Platform.isAndroid ? "android" : "ios"
+      "platform": Platform.isAndroid ? "android" : "ios"
     };
 
     await Navigator.push(
