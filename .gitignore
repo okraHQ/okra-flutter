@@ -73,3 +73,5 @@ build/
 
 # Environment variables
 *.env
+*.js
+/example/ios/Flutter/Flutter.podspec

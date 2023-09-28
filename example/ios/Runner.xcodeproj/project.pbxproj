@@ -215,6 +215,7 @@
 			files = (
 			);
 			inputPaths = (
+				"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}",
 			);
 			name = "Thin Binary";
 			outputPaths = (
@@ -267,16 +268,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/device_info/device_info.framework",
-				"${BUILT_PRODUCTS_DIR}/device_info_plus/device_info_plus.framework",
-				"${BUILT_PRODUCTS_DIR}/platform_device_id/platform_device_id.framework",
+				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
+				"${BUILT_PRODUCTS_DIR}/client_information/client_information.framework",
 				"${BUILT_PRODUCTS_DIR}/webview_flutter_wkwebview/webview_flutter_wkwebview.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/device_info.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/device_info_plus.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/platform_device_id.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/client_information.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/webview_flutter_wkwebview.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

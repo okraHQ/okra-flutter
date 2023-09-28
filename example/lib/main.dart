@@ -2,6 +2,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:flutter/material.dart';
 import 'package:okra_widget_official/okra_widget.dart';
+import 'dart:developer' as developer;
 
 Future main() async {
   await dotenv.load(fileName: ".env");
@@ -59,16 +60,18 @@ class _MyHomePageState extends State<MyHomePage> {
         token: dotenv.env['token']!,
         color: "#3AB795",
         products: ['auth', 'identity', 'balance', 'transactions'],
-        chargeAmount: 100,
-        chargeNote: "testing",
+        chargeAmount: 50000,
+        chargeNote: "testing payment",
         chargeType: "one-time",
         chargeCurrency: "NGN",
         environment: "production",
-        clientName: "clientName",
-        customerBvn: dotenv.env['bvn']!,
-        logo:
-        "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
+        clientName: "Okra",
+        logo: "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
         limit: 3,
+        meta: "Test Meta",
+        options: {
+          "name": "Flutter Options Test"
+        },
         currency: "NGN",
         isCorporate: false,
         showBalance: true,
@@ -78,6 +81,9 @@ class _MyHomePageState extends State<MyHomePage> {
         "Which account do you want to connect with?",
         callbackUrl: "",
         redirectUrl: "",
+        // customerId: "64247efe8e3711362e9ef0ab",
+        // reAuthAccountNumber: "1503274972",
+        // reAuthBankSlug: "access-bank",
         widgetSuccess:
         "Your account was successfully linked to SwipeNG",
         widgetFailed:
@@ -90,14 +96,19 @@ class _MyHomePageState extends State<MyHomePage> {
         filters: {"industry_type": "all", "banks": banks},
         onSuccess: (data) {
           print("Success");
-          print(data);
+          developer.log('$data');
         }, onError: (message) {
           print("error");
-          print(message);
+          developer.log('$message');
         }, onClose: (message) {
           print("close");
           print(message);
-        });
+        },
+        onEvent: (message) {
+          print("event");
+          print(message);
+        }
+    );
   }
 
   void buildWithShortUrl() {
@@ -106,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
         shortUrl: dotenv.env['url']!,
         onSuccess: (data) {
           print("Success");
-          print(data);
+          developer.log('$data');
         },
         onError: ( message) {
           print("error");
@@ -114,6 +125,10 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         onClose: (message) {
           print("close");
+          print(message);
+        },
+        onEvent: (message) {
+          print("event");
           print(message);
         }
     );

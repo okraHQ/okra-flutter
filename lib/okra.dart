@@ -1,64 +1,60 @@
-import 'package:device_info_plus/device_info_plus.dart';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:okra_widget_official/raw/okra_html.dart';
 import 'package:okra_widget_official/utils/helper.dart';
 import 'dart:io' show Platform;
 import 'view/web.dart';
 
 class Okra {
   Okra._();
+
   static Future<void> buildWithOptions(
-        BuildContext context, {
-        required String key,
-        required String token,
-        String? appId,
-        required List<String> products,
-        String? environment,
-        required String clientName,
-        String? color,
-        int? limit,
-        bool? isCorporate,
-        bool? showBalance,
-        bool? geoLocation,
-        bool? multiAccount,
-        bool? payment,
-        String? connectMessage,
-        String? callbackUrl,
-        String? redirectUrl,
-        String? logo,
-        String? widgetSuccess,
-        String? widgetFailed,
-        String? currency,
-        bool? noPeriodic,
-        String? exp,
-        String? successTitle,
-        String? successMessage,
-        String? chargeType,
-        int? chargeAmount,
-        String? chargeCurrency,
-        String? chargeNote,
-        String? customerId,
-        String? customerBvn,
-        String? customerPhone,
-        String? customerEmail,
-        String? customerNin,
-        Map<String, Object>? guarantors,
-        Map<String, Object>? filters,
-        Function(String data)? onSuccess,
-        Function(String message)? onError,
-        Function(String message)? onClose,
-        Function(String message)? beforeClose,
+    BuildContext context, {
+    required String key,
+    required String token,
+    String? appId,
+    required List<String> products,
+    String? environment,
+    required String clientName,
+    String? color,
+    int? limit,
+    bool? isCorporate,
+    bool? showBalance,
+    bool? geoLocation,
+    bool? multiAccount,
+    bool? payment,
+    String? connectMessage,
+    String? callbackUrl,
+    String? redirectUrl,
+    String? logo,
+    String? widgetSuccess,
+    String? widgetFailed,
+    String? currency,
+    bool? noPeriodic,
+    String? exp,
+    String? successTitle,
+    String? successMessage,
+    String? chargeType,
+    int? chargeAmount,
+    String? chargeCurrency,
+    String? chargeNote,
+    String? customerId,
+    String? customerBvn,
+    String? customerPhone,
+    String? customerEmail,
+    String? customerNin,
+    String? reAuthAccountNumber,
+    String? reAuthBankSlug,
+    Map<String, Object>? guarantors,
+    Map<String, Object>? filters,
+    dynamic meta,
+    Map<String, dynamic>? options,
+    Function(dynamic data)? onSuccess,
+    Function(dynamic response)? onError,
+    Function(String message)? onClose,
+    Function(String message)? beforeClose,
+    Function(String message)? onEvent,
   }) async {
-    AndroidDeviceInfo? androidDeviceInfo;
-    IosDeviceInfo? iosDeviceInfo;
-    // DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-
-    if (Platform.isAndroid) {
-      androidDeviceInfo = await Helper.getAndroidInfo();
-    } else {
-      iosDeviceInfo = await Helper.getIosInfo();
-    }
-
     Map<String, Map> customerObj = new Map();
     customerObj.putIfAbsent("id", () => {"id": "'$customerId'"});
     customerObj.putIfAbsent("bvn", () => {"bvn": "'$customerBvn'"});
@@ -91,44 +87,43 @@ class Okra {
     okraOptions["success_title"] = successTitle ?? "";
     okraOptions["guarantors"] = "'$guarantors'";
     okraOptions["filters"] = "'$filters'";
+    okraOptions["options"] = jsonEncode(options);
+    okraOptions["meta"] = meta;
+    okraOptions["reauth_account"] = reAuthAccountNumber ?? "";
+    okraOptions["reauth_bank"] = reAuthBankSlug ?? "";
 
     var charge = {
       "type": chargeType ?? "",
       "amount": chargeAmount ?? "",
-      "note": chargeNote ?? "",
+      "note": chargeNote ?? " ",
       "currency": chargeCurrency ?? ""
     };
-    okraOptions["charge"] = okraOptions["payment"] ? "'$charge'" : false;
+    okraOptions["charge"] = okraOptions["payment"] ? jsonEncode(charge) : false;
 
+    // debugPrint(okraOptions["charge"]);
     var customer = {};
-    if(customerId !=null && customerId.isNotEmpty) {
+    if (customerId != null && customerId.isNotEmpty) {
       customer = customerObj["id"]!;
-    } else if(customerBvn !=null && customerBvn.isNotEmpty) {
+    } else if (customerBvn != null && customerBvn.isNotEmpty) {
       customer = customerObj["bvn"]!;
-    } else if(customerPhone !=null && customerPhone.isNotEmpty) {
+    } else if (customerPhone != null && customerPhone.isNotEmpty) {
       customer = customerObj["phone"]!;
-    } else if(customerEmail !=null && customerEmail.isNotEmpty) {
+    } else if (customerEmail != null && customerEmail.isNotEmpty) {
       customer = customerObj["email"]!;
-    } else if(customerNin !=null && customerNin.isNotEmpty) {
+    } else if (customerNin != null && customerNin.isNotEmpty) {
       customer = customerObj["nin"]!;
     }
     okraOptions["customer"] = "$customer";
 
+    final clientInfo = await Helper.getDeviceInfo();
 
-
-    okraOptions["uuid"] = await Helper.getDeviceUUID();
-    String? deviceName =
-        Platform.isAndroid ? androidDeviceInfo!.brand : iosDeviceInfo!.name;
-    String? deviceModel =
-        Platform.isAndroid ? androidDeviceInfo!.model : iosDeviceInfo!.model;
-    okraOptions["deviceInfo"] = "";
-    // okraOptions["deviceInfo"] = {
-    //   "deviceName" : deviceName,
-    //   "deviceModel" : deviceModel,
-    //   "longitude" : 0,
-    //   "latitude" :  0,
-    //   "platform" : Platform.isAndroid ? "android" : "ios"
-    // };
+    okraOptions["deviceInfo"] = {
+      "deviceName": clientInfo!.deviceName,
+      "deviceId": clientInfo.deviceId,
+      "osName": clientInfo.osName,
+      "osVersion": clientInfo.osVersion,
+      "platform": Platform.isAndroid ? "android" : "ios"
+    };
 
     for (String p in products) {
       int i = products.indexOf(p);
@@ -139,8 +134,6 @@ class Okra {
     okraOptions["source"] = "flutter";
     okraOptions["isWebview"] = true;
     print(okraOptions["uuid"]);
-    // print(products);
-    // print(mBuildOkraWidgetWithOptions(okraOptions));
 
     await Navigator.push(
       context,
@@ -151,6 +144,8 @@ class Okra {
           onClose: onClose,
           onError: onError,
           onSuccess: onSuccess,
+          onEvent: onEvent,
+          beforeClose: beforeClose,
         ),
       ),
     );
@@ -163,16 +158,29 @@ class Okra {
     Function(String message)? onError,
     Function(String message)? onClose,
     Function(String message)? beforeClose,
+    Function(String message)? onEvent,
   }) async {
+    final clientInfo = await Helper.getDeviceInfo();
+
+    final deviceInfo = {
+      "deviceName": clientInfo!.deviceName,
+      "deviceId": clientInfo.deviceId,
+      "osName": clientInfo.osName,
+      "osVersion": clientInfo.osVersion,
+      "platform": Platform.isAndroid ? "android" : "ios"
+    };
+
     await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (BuildContext context) => Web(
           shortUrl: shortUrl,
+          okraOptions: deviceInfo,
           useShort: true,
           onClose: onClose,
           onError: onError,
           onSuccess: onSuccess,
+          onEvent: onEvent,
         ),
       ),
     );

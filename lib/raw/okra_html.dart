@@ -1,3 +1,4 @@
+
 String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
     '''
 <!DOCTYPE html>
@@ -6,7 +7,7 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okra React Native SDK</title>
+    <title>Okra Flutter SDK</title>
   </head>
     <body onload="buildWithOptions()" style="background-color:#fff;height:100vh">
       <script src="https://cdn.okra.ng/v2/bundle.js"></script>
@@ -23,6 +24,8 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
                 payment: ${okraOptions["payment"]},
                 color: '${okraOptions["color"]}',
                 filter: ${okraOptions["filters"]},
+                meta: '${okraOptions["meta"]}',
+                options: ${okraOptions["options"]},
                 isCorporate: ${okraOptions["isCorporate"]},
                 showBalance: ${okraOptions["showBalance"]},
                 geoLocation: ${okraOptions["geoLocation"]},
@@ -37,6 +40,9 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
                 exp: '${okraOptions["exp"]}',
                 charge: ${okraOptions["charge"]},
                 customer: ${okraOptions["customer"]},
+                deviceInfo: ${okraOptions["charge"]},
+                reauth_account: '${okraOptions["reauth_account"]}',
+                reauth_bank: '${okraOptions["reauth_bank"]}',
                 onSuccess: function(data){
                       let response = {event:'option success', data}
                       window.FlutterOnSuccess.postMessage(JSON.stringify(response))
@@ -52,6 +58,10 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
                 onError: function(data){
                   let response = {event:'option error', data}
                   window.FlutterOnError.postMessage(JSON.stringify(response))
+                },
+                onEvent: function(data){
+                  let response = {event:'option event', data}
+                  window.FlutterOnEvent.postMessage(JSON.stringify(response))
                 }
               })
           }
@@ -60,22 +70,23 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
 </html>
 ''';
 
-String buildOkraWidgetWithShortUrl(final String? shortUrl) => '''
+String buildOkraWidgetWithShortUrl(final String? shortUrl, dynamic deviceInfo) => '''
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okra React Native SDK</title>
+    <title>Okra Flutter SDK</title>
   </head>
     <body onload="buildWithShortUrl()" style="background-color:#fff;height:100vh">
       <script src="https://cdn.okra.ng/v2/bundle.js"></script>
       <script type="text/javascript">
-          window.onload = buildWithOptions;
+          window.onload = buildWithShortUrl;
           function buildWithShortUrl(){
               Okra.buildWithShortUrl({
                 short_url: '$shortUrl',
+                deviceInfo: '$deviceInfo',
                 onSuccess: function(data){
                     let response = {event:'option success', data}
                     window.FlutterOnSuccess.postMessage(JSON.stringify(response)) 
@@ -91,6 +102,10 @@ String buildOkraWidgetWithShortUrl(final String? shortUrl) => '''
                 onError: function(data){
                   let response = {event:'option error', data}
                   window.FlutterOnError.postMessage(JSON.stringify(response))
+                },
+                onEvent: function(data){
+                  let response = {event:'option event', data}
+                  window.FlutterOnEvent.postMessage(JSON.stringify(response))
                 }
             })
           }
