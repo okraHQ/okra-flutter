@@ -120,13 +120,20 @@ class _WebState extends State<Web> {
   @override
   Widget build(BuildContext context) {
     // print(getUrl(widget.useShort));
-    return Stack(children: [
-      WebViewWidget(controller: _controller),
-      isLoading
-          ? Center(
-              child: CircularProgressIndicator(),
-            )
-          : Container(width: 0, height: 0, color: Colors.transparent),
-    ]);
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: null,
+      body: Padding(
+        padding: const EdgeInsets.only(top: 38.0, left: 16, right: 16),
+        child: Stack(children: [
+          WebViewWidget(controller: _controller),
+          isLoading
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              : Container(width: 0, height: 0, color: Colors.transparent),
+        ]),
+      ),
+    );
   }
 }

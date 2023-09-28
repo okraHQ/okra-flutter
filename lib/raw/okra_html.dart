@@ -41,6 +41,8 @@ String mBuildOkraWidgetWithOptions(final Map<String, dynamic> okraOptions) =>
                 charge: ${okraOptions["charge"]},
                 customer: ${okraOptions["customer"]},
                 deviceInfo: ${okraOptions["charge"]},
+                reauth_account: '${okraOptions["reauth_account"]}',
+                reauth_bank: '${okraOptions["reauth_bank"]}',
                 onSuccess: function(data){
                       let response = {event:'option success', data}
                       window.FlutterOnSuccess.postMessage(JSON.stringify(response))
@@ -75,7 +77,7 @@ String buildOkraWidgetWithShortUrl(final String? shortUrl, dynamic deviceInfo) =
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okra React Native SDK</title>
+    <title>Okra Flutter SDK</title>
   </head>
     <body onload="buildWithShortUrl()" style="background-color:#fff;height:100vh">
       <script src="https://cdn.okra.ng/v2/bundle.js"></script>

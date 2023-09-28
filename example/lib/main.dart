@@ -58,15 +58,16 @@ class _MyHomePageState extends State<MyHomePage> {
     Okra.buildWithOptions(context,
         key: dotenv.env['key']!,
         token: dotenv.env['token']!,
+        // key: 'c279cbff-26a4-56ea-afdd-bbcbe9340deb',
+        // token: '5d9288ea182d3d000cb7c486',
         color: "#3AB795",
         products: ['auth', 'identity', 'balance', 'transactions'],
-        chargeAmount: 100,
-        chargeNote: "testing",
+        chargeAmount: 50000,
+        chargeNote: "testing payment",
         chargeType: "one-time",
         chargeCurrency: "NGN",
         environment: "production",
-        clientName: "clientName",
-        // customerBvn: dotenv.env['bvn']!,
+        clientName: "Okra",
         logo: "https://dash.okra.ng/static/media/okra-logo.514fd943.png",
         limit: 3,
         meta: "Test Meta",
@@ -82,6 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
         "Which account do you want to connect with?",
         callbackUrl: "",
         redirectUrl: "",
+        // customerId: "64247efe8e3711362e9ef0ab",
+        // reAuthAccountNumber: "1503274972",
+        // reAuthBankSlug: "access-bank",
         widgetSuccess:
         "Your account was successfully linked to SwipeNG",
         widgetFailed:
@@ -97,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
           developer.log('$data');
         }, onError: (message) {
           print("error");
-          print(message);
+          developer.log('$message');
         }, onClose: (message) {
           print("close");
           print(message);

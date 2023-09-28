@@ -43,12 +43,14 @@ class Okra {
     String? customerPhone,
     String? customerEmail,
     String? customerNin,
+    String? reAuthAccountNumber,
+    String? reAuthBankSlug,
     Map<String, Object>? guarantors,
     Map<String, Object>? filters,
     dynamic meta,
     Map<String, dynamic>? options,
     Function(dynamic data)? onSuccess,
-    Function(String message)? onError,
+    Function(dynamic response)? onError,
     Function(String message)? onClose,
     Function(String message)? beforeClose,
     Function(String message)? onEvent,
@@ -87,15 +89,18 @@ class Okra {
     okraOptions["filters"] = "'$filters'";
     okraOptions["options"] = jsonEncode(options);
     okraOptions["meta"] = meta;
+    okraOptions["reauth_account"] = reAuthAccountNumber ?? "";
+    okraOptions["reauth_bank"] = reAuthBankSlug ?? "";
 
     var charge = {
       "type": chargeType ?? "",
       "amount": chargeAmount ?? "",
-      "note": chargeNote ?? "",
+      "note": chargeNote ?? " ",
       "currency": chargeCurrency ?? ""
     };
-    okraOptions["charge"] = okraOptions["payment"] ? "'$charge'" : false;
+    okraOptions["charge"] = okraOptions["payment"] ? jsonEncode(charge) : false;
 
+    // debugPrint(okraOptions["charge"]);
     var customer = {};
     if (customerId != null && customerId.isNotEmpty) {
       customer = customerObj["id"]!;

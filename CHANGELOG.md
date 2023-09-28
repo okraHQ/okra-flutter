@@ -1,9 +1,21 @@
+3.1.10
+ - Optimization and bug fixes
+
+3.1.9
+ - Optimized serialization
+
+3.1.8
+ - Optimized mobile experience
+
+3.1.7
+  - added support for user payment re-authorization with new parameters namely reAuthAccountNumber and reAuthBankSlug
+
 3.1.6
   - added support for new widget parameters, namely meta and options
-  - find grained device info
+  - fine grained device info
 
 3.1.5
-  - fixed issue with Navigation Delegate and IOS
+  - fixed issue with Navigation Delegate on IOS
 
 3.1.4
   - major update to our sub dependencies
