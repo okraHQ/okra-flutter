@@ -58,8 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
     Okra.buildWithOptions(context,
         key: dotenv.env['key']!,
         token: dotenv.env['token']!,
-        // key: 'c279cbff-26a4-56ea-afdd-bbcbe9340deb',
-        // token: '5d9288ea182d3d000cb7c486',
         color: "#3AB795",
         products: ['auth', 'identity', 'balance', 'transactions'],
         chargeAmount: 50000,
