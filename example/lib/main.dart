@@ -36,31 +36,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void buildWithOptions() {
     var banks = [
-      "ecobank-nigeria",
-      "fidelity-bank",
+
       "first-bank-of-nigeria",
-      "first-city-monument-bank",
       "guaranty-trust-bank",
       "access-bank",
-      "unity-bank",
-      "alat",
-      "polaris-bank",
-      "stanbic-ibtc-bank",
-      "standard-chartered-bank",
-      "sterling-bank",
-      "union-bank-of-nigeria",
-      "united-bank-for-africa",
-      "wema-bank",
-      "rubies-bank",
-      "kuda-bank"
+
     ];
 
     Okra.buildWithOptions(context,
-        key: dotenv.env['key']!,
-        token: dotenv.env['token']!,
+        key: "",
+        token: "",
         color: "#3AB795",
         products: ['auth', 'identity', 'balance', 'transactions'],
         chargeAmount: 50000,
+        authorization: true,
         chargeNote: "testing payment",
         chargeType: "one-time",
         chargeCurrency: "NGN",

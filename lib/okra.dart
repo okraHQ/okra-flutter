@@ -18,6 +18,7 @@ class Okra {
     required String clientName,
     String? color,
     int? limit,
+    bool? authorization,
     bool? isCorporate,
     bool? showBalance,
     bool? geoLocation,
@@ -75,6 +76,7 @@ class Okra {
     okraOptions["geoLocation"] = geoLocation ?? false;
     okraOptions["multiAccount"] = multiAccount ?? false;
     okraOptions["payment"] = payment ?? false;
+    okraOptions["authorization"] = authorization ?? false;
     okraOptions["connectMessage"] = connectMessage;
     okraOptions["callback_url"] = callbackUrl ?? "";
     okraOptions["redirect_url"] = redirectUrl ?? "";
@@ -86,7 +88,7 @@ class Okra {
     okraOptions["exp"] = exp ?? "";
     okraOptions["success_title"] = successTitle ?? "";
     okraOptions["guarantors"] = "'$guarantors'";
-    okraOptions["filters"] = "'$filters'";
+    okraOptions["filters"] = jsonEncode(filters);
     okraOptions["options"] = jsonEncode(options);
     okraOptions["meta"] = meta;
     okraOptions["reauth_account"] = reAuthAccountNumber ?? "";
@@ -100,6 +102,13 @@ class Okra {
     };
     okraOptions["charge"] = okraOptions["payment"] ? jsonEncode(charge) : false;
 
+    var auth = {
+      "debitLater": true,
+      "debitType": "one-time",
+      "manual": false,
+      "ussd": false,
+    };
+    okraOptions["auth"] = okraOptions["authorization"] ? jsonEncode(auth) : false;
     // debugPrint(okraOptions["charge"]);
     var customer = {};
     if (customerId != null && customerId.isNotEmpty) {

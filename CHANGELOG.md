@@ -1,3 +1,13 @@
+3.1.13
+  - Added Support for Payment Authorization
+
+3.1.12
+  - Optimize serialization for Map/Object parameters
+
+3.1.11
+ - SDK spinner removed
+ - More responsiveness for notched devices
+   
 3.1.10
  - Optimization and bug fixes
 
